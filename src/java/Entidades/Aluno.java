@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
@@ -35,7 +36,9 @@ public class Aluno extends Pessoa{
     private String dataNascResp;
     @Column(length = 20, name = "CPFRESP", nullable = false)
     private String cpfResp;
-    //private Turma turma; 
+    @ManyToOne
+    @JoinColumn(name = "ID_TURMA")
+    private Turma turma; 
 
     public Aluno(String nomeCompResp, String dataNascResp, String cpfResp, String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone) {
         super(nome, dataNascimento, cpf, rg, sexo, endereco, telefone);
@@ -43,6 +46,39 @@ public class Aluno extends Pessoa{
         this.dataNascResp = dataNascResp;
         this.cpfResp = cpfResp;
     }
+
+    public String getNomeCompResp() {
+        return nomeCompResp;
+    }
+
+    public void setNomeCompResp(String nomeCompResp) {
+        this.nomeCompResp = nomeCompResp;
+    }
+
+    public String getDataNascResp() {
+        return dataNascResp;
+    }
+
+    public void setDataNascResp(String dataNascResp) {
+        this.dataNascResp = dataNascResp;
+    }
+
+    public String getCpfResp() {
+        return cpfResp;
+    }
+
+    public void setCpfResp(String cpfResp) {
+        this.cpfResp = cpfResp;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
+    }
+    
     
     
 }

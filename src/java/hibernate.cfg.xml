@@ -49,5 +49,7 @@ Contributor(s):
     <property name="hibernate.hbm2ddl.auto">create</property>
     <mapping class="Entidades.Pessoa"/>
     <mapping class="Entidades.Aluno"/>
+    <mapping class="Entidades.Disciplina"/>
+    <mapping class="Entidades.Turma"/>
   </session-factory>
 </hibernate-configuration>
