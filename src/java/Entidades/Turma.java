@@ -46,6 +46,39 @@ public class Turma {
         this.alunos = alunos;
         this.disciplinas = disciplinas;
     }
+
+    public int getCodigoTurma() {
+        return codigoTurma;
+    }
+
+    public void setCodigoTurma(int codigoTurma) {
+        this.codigoTurma = codigoTurma;
+    }
+
+    public String getDescricaoTurma() {
+        return descricaoTurma;
+    }
+
+    public void setDescricaoTurma(String descricaoTurma) {
+        this.descricaoTurma = descricaoTurma;
+    }
+
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+    
     
     
 }

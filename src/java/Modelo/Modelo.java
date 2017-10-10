@@ -10,7 +10,9 @@ import Entidades.Disciplina;
 import Entidades.Professor;
 import Hibernate.HibernateUtil;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -21,17 +23,49 @@ import org.hibernate.Transaction;
 public class Modelo {
     private Session sessao;
     private Transaction trans;
+    private List<Aluno> alunos;
     
-    public void addAluno(){
+    public void addAluno(Aluno aluno){
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
-        
-        Aluno aluno = new Aluno("Helena Marques", "01/04/1971", "08745898658", "Gustavo Mendonça", "10/10/1996", "07512554875", "00548721547", "Masculino", "Av. Gastão", "44998249570");
-        Professor prof = new Professor("UEM", "", "", "", "Janice Quadros", "25/08/1956", "00548751200", "658458699", "Feminino", "Rua Sela 174", "44875487454");
-        
+        System.out.println("Salvando pessoa");
         sessao.save(aluno);
-        sessao.save(prof);
         trans.commit();
         sessao.close();
     }
+    
+    public boolean addAluno(String nomeCompResp, String dataNascResp, String cpfResp, String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Aluno aluno = new Aluno(nomeCompResp, dataNascResp, cpfResp, nome, dataNascimento, cpf, rg, sexo, endereco, telefone);
+        
+        sessao.save(aluno);
+        trans.commit();
+        sessao.close();
+        return true;
+    }
+    
+    public boolean atualizaAluno(Aluno a){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        sessao.save(a);
+        trans.commit();
+        sessao.close();
+        return true;
+    }
+
+    public List<Aluno> getAlunos() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Criteria cri = sessao.createCriteria(Aluno.class);
+        this.alunos = cri.list();
+        
+        sessao.close();
+        return alunos;
+    }
+    
+    
 }

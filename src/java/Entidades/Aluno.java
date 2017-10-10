@@ -30,11 +30,11 @@ import javax.persistence.Table;
 })
 
 public class Aluno extends Pessoa{
-    @Column(length = 50, name = "NOMERESP", nullable = false)
+    @Column(length = 50, name = "NOMERESP", nullable = true)
     private String nomeCompResp;
-    @Column(length = 20, name = "DATANASCRESP", nullable = false)
+    @Column(length = 20, name = "DATANASCRESP", nullable = true)
     private String dataNascResp;
-    @Column(length = 20, name = "CPFRESP", nullable = false)
+    @Column(length = 20, name = "CPFRESP", nullable = true)
     private String cpfResp;
     @ManyToOne
     @JoinColumn(name = "ID_TURMA")
@@ -45,6 +45,10 @@ public class Aluno extends Pessoa{
         this.nomeCompResp = nomeCompResp;
         this.dataNascResp = dataNascResp;
         this.cpfResp = cpfResp;
+    }
+    
+    public Aluno(){
+        
     }
 
     public String getNomeCompResp() {

@@ -22,11 +22,11 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Funcionario.findById", query = "SELECT p FROM Funcionario p WHERE p.id = :id")
 })
 public class Funcionario extends Pessoa{
-    @Column(length = 20, name = "CARTEIRATRAB", nullable = false)
+    @Column(length = 20, name = "CARTEIRATRAB", nullable = true)
     private String carteiraTrabalho;
-    @Column(length = 20, name = "DATAINI", nullable = false)
+    @Column(length = 20, name = "DATAINI", nullable = true)
     private String dataInicioTrab;
-    @Column(length = 20, name = "DATAFIM", nullable = false)
+    @Column(length = 20, name = "DATAFIM", nullable = true)
     private String dataFimTrab;
     @Column(name = "PERMISSAO", nullable = false)
     private int permissao;
