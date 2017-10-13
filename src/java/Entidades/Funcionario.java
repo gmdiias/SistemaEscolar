@@ -28,15 +28,21 @@ public class Funcionario extends Pessoa{
     private String dataInicioTrab;
     @Column(length = 20, name = "DATAFIM", nullable = true)
     private String dataFimTrab;
-    @Column(name = "PERMISSAO", nullable = false)
+    @Column(name = "PERMISSAO", nullable = true)
     private int permissao;
+    @Column(name = "FUNCAO", nullable = true)
+    private String funcao;
 
-    public Funcionario(String carteiraTrabalho, String dataInicioTrab, String dataFimTrab, int permissao, String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone) {
-        super(nome, dataNascimento, cpf, rg, sexo, endereco, telefone);
-        this.carteiraTrabalho = carteiraTrabalho;
-        this.dataInicioTrab = dataInicioTrab;
-        this.dataFimTrab = dataFimTrab;
-        this.permissao = permissao;
+
+    public Funcionario() {
+    }
+
+    public String getFuncao() {
+        return funcao;
+    }
+
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
 
     public String getCarteiraTrabalho() {

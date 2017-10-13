@@ -40,13 +40,6 @@ public class Aluno extends Pessoa{
     @JoinColumn(name = "ID_TURMA")
     private Turma turma; 
 
-    public Aluno(String nomeCompResp, String dataNascResp, String cpfResp, String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone) {
-        super(nome, dataNascimento, cpf, rg, sexo, endereco, telefone);
-        this.nomeCompResp = nomeCompResp;
-        this.dataNascResp = dataNascResp;
-        this.cpfResp = cpfResp;
-    }
-    
     public Aluno(){
         
     }

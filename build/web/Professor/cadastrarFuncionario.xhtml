@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Cadastro de Funcionário</title>
+    </h:head>
+    <h:body>
+        <h1>Cadastro de Alunos</h1>
+        <h3>Para realizar o cadastro de um novo aluno preencha todos os campos abaixo com dados do mesmo:</h3>
+        <h:form>
+            <h:panelGrid columns="2">
+                Nome: <h:inputText id="nome" value="#{funcionariosControl.funcionario.nome}"/><br></br>
+                Data Nascimento: <h:inputText id="dataNasc" value="#{funcionariosControl.funcionario.dataNascimento}"/><br></br>
+                CPF: <h:inputText id="cpf" value="#{funcionariosControl.funcionario.cpf}"/><br></br>
+                RG: <h:inputText id="rg" value="#{funcionariosControl.funcionario.rg}"/><br></br>
+                Sexo: <h:inputText id="sexo" value="#{funcionariosControl.funcionario.sexo}"/><br></br>
+                Telefone: <h:inputText id="telefone" value="#{funcionariosControl.funcionario.telefone}"/><br></br>
+                Endereço: <h:inputText id="endereco" value="#{funcionariosControl.funcionario.endereco}"/><br></br>
+                Função: <h:inputText id="funcao" value="#{funcionariosControl.funcionario.funcao}"/><br></br>
+                <h:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

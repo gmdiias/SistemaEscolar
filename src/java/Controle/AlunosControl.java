@@ -6,11 +6,13 @@
 package Controle;
 
 import Entidades.Aluno;
-import Modelo.Modelo;
+import Modelo.AlunoDAO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -20,7 +22,7 @@ import java.util.List;
 @SessionScoped
 public class AlunosControl implements Serializable {
     private Aluno aluno = new Aluno();
-    private Modelo modelo = new Modelo();
+    private AlunoDAO modelo = new AlunoDAO();
     private List<Aluno> alunos;
     
     public AlunosControl() {
@@ -28,22 +30,42 @@ public class AlunosControl implements Serializable {
     
     public String addAluno(){
         modelo.addAluno(aluno);
-        return "Aluno/consultaAlunos";
+        resetaCampos();
+        return "consultaAlunos";
     }
     
     public List<Aluno> listarAlunos(){
         alunos = modelo.getAlunos();
+        resetaCampos();
         return alunos;
     }
     
-    public String atualizaAluno(Aluno a){
-        modelo.atualizaAluno(a);
+    public List<Aluno> listarAlunosDel(){
+        alunos = modelo.getAlunosDel();
+        resetaCampos();
+        return alunos;
+    }
+    
+    public String updateAluno(){
+        modelo.atualizaAluno(aluno);
+        resetaCampos();
+        return "consultaAlunos";
+    }
+    
+    public String deleteAluno(){
+        modelo.deleteAluno(aluno);
+        resetaCampos();
         return "consultaAlunos";
     }
     
     public String carregarAluno(Aluno a){
         aluno = a;
         return "editarAluno";
+    }
+    
+    public String retornaAluno(Aluno a){
+        modelo.retornaAluno(a);
+        return "consultaAlunos";
     }
 
     public Aluno getAluno() {
@@ -54,12 +76,23 @@ public class AlunosControl implements Serializable {
         this.aluno = aluno;
     }
 
-    public Modelo getModelo() {
+    public AlunoDAO getModelo() {
         return modelo;
     }
 
-    public void setModelo(Modelo modelo) {
+    public void setModelo(AlunoDAO modelo) {
         this.modelo = modelo;
     }
     
+    public void resetaCampos(){
+        aluno.setNome(null);
+        aluno.setDataNascimento(null);
+        aluno.setCpf(null);
+        aluno.setRg(null);
+        aluno.setSexo(null);
+        aluno.setTelefone(null);
+        aluno.setEndereco(null);
+        aluno.setEmail(null);
+        aluno.setSenha(null);
+    }
 }

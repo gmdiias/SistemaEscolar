@@ -24,7 +24,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Professor.findAll", query = "SELECT p FROM Professor p")
     , @NamedQuery(name = "Professor.findById", query = "SELECT p FROM Professor p WHERE p.id = :id")
 })
-public class Professor extends Pessoa{
+public class Professor extends Funcionario{
     private String graduação;
     private String posgraduação;
     private String mestrado;
@@ -33,14 +33,7 @@ public class Professor extends Pessoa{
     @JoinColumn(name = "ID_DISC")
     private List<Disciplina> disciplinas;
 
-    public Professor(String graduação, String posgraduação, String mestrado, String doutorado, String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone) {
-        super(nome, dataNascimento, cpf, rg, sexo, endereco, telefone);
-        this.graduação = graduação;
-        this.posgraduação = posgraduação;
-        this.mestrado = mestrado;
-        this.doutorado = doutorado;
-    }   
-
+    
     public String getGraduação() {
         return graduação;
     }

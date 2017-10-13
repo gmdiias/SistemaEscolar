@@ -1,25 +1,51 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Cadastro de Alunos</title>
-    </h:head>
-    <h:body>
-        <h1>Cadastro de Alunos</h1>
-        <h3>Para realizar o cadastro de um novo aluno preencha todos os campos abaixo com dados do mesmo:</h3>
-        <h:form>
-            <h:panelGrid columns="2">
-                Nome: <h:inputText id="nome" value="#{alunosControl.aluno.nome}"/><br></br>
-                Data Nascimento: <h:inputText id="dataNasc" value="#{alunosControl.aluno.dataNascimento}"/><br></br>
-                CPF: <h:inputText id="cpf" value="#{alunosControl.aluno.cpf}"/><br></br>
-                RG: <h:inputText id="rg" value="#{alunosControl.aluno.rg}"/><br></br>
-                Sexo: <h:inputText id="sexo" value="#{alunosControl.aluno.sexo}"/><br></br>
-                Telefone: <h:inputText id="telefone" value="#{alunosControl.aluno.telefone}"/><br></br>
-                Endereço: <h:inputText id="endereco" value="#{alunosControl.aluno.endereco}"/><br></br>
-                <h:commandButton value="Cadastrar" action="#{alunosControl.addAluno}"/>
-            </h:panelGrid>
-        </h:form>
-    </h:body>
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Sistema Escolar v0.1</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    LOGO DA ESCOLA
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Coopyrights 
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="250" header="Menu" collapsible="false">
+                    <p:menu>
+                        <p:submenu label="Administração">
+                            <p:menuitem value="Consultar Alunos" url="faces/Aluno/consultaAlunos.xhtml" target="meio" />
+                            <p:menuitem value="Cadastrar Aluno" url="http://www.primefaces.org/documentation.html" target="meio" />
+                            <p:menuitem value="Consultar Funcionarios" url="faces/Funcionario/consultaFuncionarios.xhtml" target="meio" />
+                            <p:menuitem value="Cadastrar Funcionarios" url="http://www.primefaces.org/themes.html" target="meio" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <iframe name="meio" src="" height="500" width="1200"/>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
 </html>
 

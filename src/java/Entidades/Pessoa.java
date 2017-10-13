@@ -29,6 +29,8 @@ public abstract class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(length = 2, name = "STATUS", nullable = true)
+    private int status;
     @Column(length = 50, name = "NOME", nullable = false)
     private String nome;
     @Column(length = 20, name = "DATANASC", nullable = false)
@@ -37,25 +39,27 @@ public abstract class Pessoa {
     private String cpf;
     @Column(length = 20, name = "RG", nullable = false)
     private String rg;
-    @Column(length = 10, name = "SEXO", nullable = false)
+    @Column(length = 20, name = "SEXO", nullable = false)
     private String sexo;
     @Column(length = 50, name = "ENDERECO", nullable = false)
     private String endereco;
     @Column(length = 20, name = "TELEFONE", nullable = false)
     private String telefone;
-
-    public Pessoa(String nome, String dataNascimento, String cpf, String rg, String sexo, String endereco, String telefone) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.sexo = sexo;
-        this.endereco = endereco;
-        this.telefone = telefone;
+    @Column(length = 63, name = "EMAIL", nullable = false)
+    private String email;
+    @Column(length = 24, name = "SENHA", nullable = false)
+    private String senha;
+    
+    public Pessoa(){
+        this.status = 1;
     }
 
-    public Pessoa(){
-        
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public int getId() {
@@ -120,6 +124,22 @@ public abstract class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
     
     

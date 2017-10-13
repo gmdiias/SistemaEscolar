@@ -5,7 +5,7 @@
  */
 package Aplicação;
 
-import Modelo.Modelo;
+import Modelo.AlunoDAO;
 
 
 
@@ -15,6 +15,6 @@ import Modelo.Modelo;
  */
 public class Main {
     public static void main(String[] args) {
-        Modelo modelo = new Modelo();
+        AlunoDAO modelo = new AlunoDAO();
     }
 }
