@@ -5,6 +5,7 @@
  */
 package Aplicação;
 
+import Entidades.Disciplina;
 import Modelo.AlunoDAO;
 
 

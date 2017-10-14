@@ -3,21 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Turma.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Aluno/consultaAlunosDel.xhtml</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Pessoa.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/AlunosControl.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Funcionario.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Aluno/consultaAlunos.xhtml</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Professor.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Aluno/editarAluno.xhtml</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/AlunoDAO.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Aluno.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Aluno/cadastrarAluno.xhtml</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Disciplina.java</file>
-            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/FuncionariosControl.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Notas/consultaNotas.xhtml</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Notas/removerNotas.xhtml</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Controle/NotasControl.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Modelo/NotasDAO.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Aluno/editarAluno.xhtml</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Entidades/Notas.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Entidades/Disciplina.java</file>
+            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Aplicação/Main.java</file>
         </group>
     </open-files>
 </project-private>

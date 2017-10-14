@@ -9,42 +9,42 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:dataTable value="#{notasControl.getNotas()}" var="notas" border="1">
+            <h:dataTable value="#{notasControl.listarNotas}" var="notasLista" border="1">
                 <h:column>
                     <f:facet name="header">
                         Disciplina:
                     </f:facet>
-                    <h:outputText value="#{disciplina.nome}"/>
+                    <h:outputText value="#{notasLista.disciplina.nome}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         RA:
                     </f:facet>
-                    <h:outputText value="#{alunoslista.id}"/>
+                    <h:outputText value="#{notasLista.aluno.id}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         Nota 1:
                     </f:facet>
-                    <h:outputText value="#{nota.nota1}"/>
+                    <h:outputText value="#{notasLista.nota1}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         Nota 2:
                     </f:facet>
-                    <h:outputText value="#{nota.nota2}"/>
+                    <h:outputText value="#{notasLista.nota2}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         Nota 3:
                     </f:facet>
-                    <h:outputText value="#{nota.nota3}"/>
+                    <h:outputText value="#{notasLista.nota3}"/>
                 </h:column>
                 <h:column>
                     <f:facet name="header">
                         Nota 4:
                     </f:facet>
-                    <h:outputText value="#{nota.nota4}"/>
+                    <h:outputText value="#{notasLista.nota4}"/>
                 </h:column>
             </h:dataTable>
             <p:commandButton value="Remover" actionListener="#{notasControl.delNotas}"/>

@@ -29,34 +29,34 @@ import javax.persistence.Table;
 public class Disciplina {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String idDisciplina;
+    private int id;
+    private String nome;
     /*@ManyToOne
     @JoinColumn(name = "ID_PROF")
     private Professor professor;*/
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "ID_TURMA")
-    private Turma turma;
+    private Turma turma;*/
 
-    public Disciplina(String idDisciplina, Turma turma) {
-        this.idDisciplina = idDisciplina;
-        this.turma = turma;
+    public Disciplina() {
     }
 
-    public String getIdDisciplina() {
-        return idDisciplina;
+    public int getId() {
+        return id;
     }
 
-    public void setIdDisciplina(String idDisciplina) {
-        this.idDisciplina = idDisciplina;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Turma getTurma() {
-        return turma;
+    public String getNome() {
+        return nome;
     }
 
-    public void setTurma(Turma turma) {
-        this.turma = turma;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+    
     
     
     

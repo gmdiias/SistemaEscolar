@@ -9,7 +9,10 @@ import Entidades.Aluno;
 import Entidades.Notas;
 import Modelo.NotasDAO;
 import java.io.Serializable;
+import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -20,25 +23,26 @@ import javax.inject.Named;
 @SessionScoped
 public class NotasControl implements Serializable{
     //private Disciplina disciplinas = new Disciplina();
+    private List<Notas> notas;
     private Notas nota  = new Notas();
-    private NotasDAO notas = new NotasDAO();
+    private NotasDAO notasDao = new NotasDAO();
     private String raAluno;
-    
-    /*
-    public Disciplina getDisciplinas() {
-        return disciplinas;
+    private String idDisc;
+
+    public String getIdDisc() {
+        return idDisc;
     }
 
-    public void setDisciplinas(Disciplina disciplinas) {
-        this.disciplinas = disciplinas;
-    }*/
+    public void setIdDisc(String idDisc) {
+        this.idDisc = idDisc;
+    }
 
     public NotasDAO getNotas() {
-        return notas;
+        return notasDao;
     }
 
     public void setNotas(NotasDAO notas) {
-        this.notas = notas;
+        this.notasDao = notasDao;
     }
     
     
@@ -52,7 +56,7 @@ public class NotasControl implements Serializable{
     }*/
     
     public String addNotas(){
-        notas.addNotas(nota, Integer.valueOf(raAluno));
+        notasDao.addNotas(nota, Integer.valueOf(raAluno), Integer.valueOf(idDisc));
         return "consultaNotas";
         
     }
@@ -73,15 +77,29 @@ public class NotasControl implements Serializable{
         this.raAluno = raAluno;
     }
     
-    public String atualizaNotas(Notas a){
-        notas.atualizaNotas(a);
-        return "Notas Atualizadas";
-    }
-    public String delNotas(){
-        notas.delNotas();
+    public String atualizaNotas(){
+        notasDao.atualizaNotas(nota);
         resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Notas Atualizadas"));
         return "consultaNotas";
     }
+    public String delNotas(){
+        notasDao.delNotas(nota);
+        resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Notas Deletadas") );
+        return "consultaNotas";
+    }
+    public String carregarNotas(Notas a){
+        nota = a;
+        return "atualizarNotas";
+    }
+    public List<Notas> listarNotas(){
+        notas = notasDao.getNotas();
+        return notas;
+    }
+    
     
     public void resetaCampos(){
         nota.setAluno(null);
@@ -89,7 +107,6 @@ public class NotasControl implements Serializable{
         nota.setNota2(null);
         nota.setNota3(null);
         nota.setNota4(null);
-        nota.setStatus(1);
     }
 
     

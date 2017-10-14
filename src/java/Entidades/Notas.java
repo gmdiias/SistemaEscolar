@@ -37,9 +37,9 @@ public class Notas {
     @ManyToOne
     @JoinColumn(name = "ID_Aluno")
     public Aluno aluno;
-    /*@OneToOne
+    @OneToOne
     @JoinColumn(name = "ID_Disc")
-    public Disciplina disciplina;*/
+    public Disciplina disciplina;
     @Column(length = 10, name = "NOTA_1", nullable = true)
     private Float nota1;
     @Column(length = 10, name = "NOTA_2", nullable = true)
@@ -58,7 +58,7 @@ public class Notas {
         this.nota4 = nota4;
     }
     public Notas(){
-        
+        setStatus(1);
     }
 
     public Aluno getAluno() {
@@ -75,7 +75,6 @@ public class Notas {
     public void setStatus(int status_n) {
         this.status_n = status_n;
     }
-    /*
 
     public Disciplina getDisciplina() {
         return disciplina;
@@ -83,7 +82,7 @@ public class Notas {
 
     public void setDisciplina(Disciplina disciplina) {
         this.disciplina = disciplina;
-    }*/
+    }
 
     public Float getNota1() {
         return nota1;

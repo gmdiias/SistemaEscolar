@@ -25,11 +25,11 @@ public class NotasDAO {
 
     private Session sessao;
     private Transaction trans;
-    private Notas nota;
+    private List<Notas> nota;
     private List<Aluno> alunos;
     private List<Disciplina> disciplinas;
     
-    public void addNotas(Notas nota, int raAluno){
+    public void addNotas(Notas nota, int raAluno, int idDisc){
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
         Criteria cri = sessao.createCriteria(Aluno.class);
@@ -37,6 +37,12 @@ public class NotasDAO {
         this.alunos = cri.list();    
         
         nota.setAluno(alunos.get(0));
+        
+        Criteria cri2 = sessao.createCriteria(Disciplina.class);
+        cri2.add(Restrictions.eq("id", idDisc));
+        this.disciplinas = cri2.list();    
+        
+        nota.setDisciplina(disciplinas.get(0));
         
         System.out.println("Salvando notas");
         sessao.save(nota);
@@ -54,7 +60,18 @@ public class NotasDAO {
         sessao.close();
         return true;
     }
-
+    public boolean retornaNota(Notas a){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        a.setStatus(1);
+        
+        sessao.update(a);
+        trans.commit();
+        sessao.close();
+        return true;
+    }
+/*
     public List<Aluno> getAlunos() {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
@@ -64,16 +81,28 @@ public class NotasDAO {
         
         sessao.close();
         return alunos;
-    }
+    }*/
     
-    public Notas delNotas() {
+    public List<Notas> getNotas() {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
         
-        nota.setStatus(0);  
-        
+        Criteria cri = sessao.createCriteria(Notas.class);
+        this.nota = cri.list();
+        System.out.println(nota.size());
         sessao.close();
         return nota;
+    }
+    
+    
+    public Notas delNotas(Notas a) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        a.setStatus(0);
+        
+        sessao.close();
+        return (Notas) nota;
     }
     
     /*public List<Disciplina> getDisciplinas(){

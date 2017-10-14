@@ -8,13 +8,14 @@
     </h:head>
     <h:body>
         <h:form>
-            
-            Aluno: <h:inputText id ="aluno" value="#{notasControl.raAluno}"/><br></br>
+            Id Disciplina: <h:inputText id ="disc" value="#{notasControl.idDisc}"/><br></br>
+            RA Aluno: <h:inputText id ="aluno" value="#{notasControl.raAluno}"/><br></br>
             Nota 1: <p:inputText id ="nota1" value="#{notasControl.nota.nota1}"/><br></br>
             Nota 2: <p:inputText id ="nota2" value="#{notasControl.nota.nota2}"/><br></br>
             Nota 3: <p:inputText id ="nota3" value="#{notasControl.nota.nota3}"/><br></br>
             Nota 4: <p:inputText id ="nota4" value="#{notasControl.nota.nota4}"/><br></br>
             <h:commandButton value="Lançar Notas" action="#{notasControl.addNotas}"></h:commandButton>
+            <p:link outcome="atualizarNotas.xhtml" value="Atualizar Notas"/> 
         </h:form>
     </h:body>
 </html>
