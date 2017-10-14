@@ -9,6 +9,7 @@
     </h:head>
     <h:body>
         <h:form>
+            <p:growl id="growl" globalOnly="true" life="2000"/>
             <p:dataTable value="#{alunosControl.listarAlunos()}" var="alunoslista">
                 <p:column>
                     <f:facet name="header">

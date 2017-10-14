@@ -5,38 +5,42 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Consultar Alunos</title>
+        <title>Consultar Funcionários</title>
     </h:head>
     <h:body>
         <h:form>
-            <p:growl id="growl" globalOnly="true" life="2000"/>
-            <p:dataTable value="#{alunosControl.listarAlunos()}" var="alunoslista">
+            <p:dataTable value="#{funcionariosControl.listarFuncionariosDel()}" var="funcionariosL">
                 <p:column>
                     <f:facet name="header">
-                        RA:
+                        ID:
                     </f:facet>
-                    <h:outputText value="#{alunoslista.id}"/>
+                    <h:outputText value="#{funcionariosL.id}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
                         Nome:
                     </f:facet>
-                    <h:outputText value="#{alunoslista.nome}"/>
+                    <h:outputText value="#{funcionariosL.nome}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Função:
+                    </f:facet>
+                    <h:outputText value="#{funcionariosL.funcao}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
                         CPF:
                     </f:facet>
-                    <h:outputText value="#{alunoslista.cpf}"/>
+                    <h:outputText value="#{funcionariosL.cpf}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
                         Ações:
                     </f:facet>
-                    <h:commandLink value="Selecionar" action="#{alunosControl.carregarAluno(alunoslista)}"/>
+                    <h:commandLink value="Reativar" action="#{funcionariosControl.retornaFuncionario(funcionariosL)}"/>
                 </p:column>
             </p:dataTable>
         </h:form>
-        <p:link outcome="cadastrarAluno.xhtml" value="Cadastrar Aluno"/> | <p:link outcome="consultaAlunosDel.xhtml" value="Alunos Deletados"/>
     </h:body>
 </html>

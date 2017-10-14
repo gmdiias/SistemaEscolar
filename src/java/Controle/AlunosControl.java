@@ -31,6 +31,8 @@ public class AlunosControl implements Serializable {
     public String addAluno(){
         modelo.addAluno(aluno);
         resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Adicionado",  "Sucesso") );
         return "consultaAlunos";
     }
     
@@ -49,12 +51,16 @@ public class AlunosControl implements Serializable {
     public String updateAluno(){
         modelo.atualizaAluno(aluno);
         resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Atualizado",  "Sucesso") );
         return "consultaAlunos";
     }
     
     public String deleteAluno(){
         modelo.deleteAluno(aluno);
         resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Deletado",  "Sucesso") );
         return "consultaAlunos";
     }
     
@@ -65,6 +71,9 @@ public class AlunosControl implements Serializable {
     
     public String retornaAluno(Aluno a){
         modelo.retornaAluno(a);
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Reativado",  "Sucesso") );
+        resetaCampos();
         return "consultaAlunos";
     }
 
@@ -94,5 +103,9 @@ public class AlunosControl implements Serializable {
         aluno.setEndereco(null);
         aluno.setEmail(null);
         aluno.setSenha(null);
+        aluno.setCpfResp(null);
+        aluno.setNomeCompResp(null);
+        aluno.setTelefoneResp(null);
+        aluno.setDataNascResp(null);
     }
 }

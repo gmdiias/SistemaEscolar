@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Cadastro de Funcionário</title>
     </h:head>
@@ -9,17 +10,32 @@
         <h1>Cadastro de Alunos</h1>
         <h3>Para realizar o cadastro de um novo aluno preencha todos os campos abaixo com dados do mesmo:</h3>
         <h:form>
-            <h:panelGrid columns="2">
-                Nome: <h:inputText id="nome" value="#{funcionariosControl.funcionario.nome}"/><br></br>
-                Data Nascimento: <h:inputText id="dataNasc" value="#{funcionariosControl.funcionario.dataNascimento}"/><br></br>
-                CPF: <h:inputText id="cpf" value="#{funcionariosControl.funcionario.cpf}"/><br></br>
-                RG: <h:inputText id="rg" value="#{funcionariosControl.funcionario.rg}"/><br></br>
-                Sexo: <h:inputText id="sexo" value="#{funcionariosControl.funcionario.sexo}"/><br></br>
-                Telefone: <h:inputText id="telefone" value="#{funcionariosControl.funcionario.telefone}"/><br></br>
-                Endereço: <h:inputText id="endereco" value="#{funcionariosControl.funcionario.endereco}"/><br></br>
-                Função: <h:inputText id="funcao" value="#{funcionariosControl.funcionario.funcao}"/><br></br>
-                <h:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}"/>
-            </h:panelGrid>
+            <p:panel id="panel" header="Cadastro de Funcionários" style="margin-bottom:10px;">
+                <p:messages id="messages" />
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="nome" value="Nome:" />
+                        <p:inputText id="nome" value="#{funcionariosControl.funcionario.nome}" maxlength="50"/>
+                        <h:outputLabel for="dataNasc" value="Data Nascimento:" />
+                        <p:inputMask id="dataNasc" value="#{funcionariosControl.funcionario.dataNascimento}" mask="99/99/9999" maxlength="20"/>
+                        <h:outputLabel for="cpf" value="CPF:" />
+                        <p:inputMask id="cpf" value="#{funcionariosControl.funcionario.cpf}" mask="999.999.999-99" maxlength="20"/>
+                        <h:outputLabel for="rg" value="RG:" />
+                        <p:inputMask id="rg" value="#{funcionariosControl.funcionario.rg}" mask="99.999.999-9" maxlength="20"/>
+                        <h:outputLabel for="sexo" value="Sexo:" />
+                        <p:inputText id="sexo" value="#{funcionariosControl.funcionario.sexo}" maxlength="20"/>
+                        <h:outputLabel for="telefone" value="Telefone:" />
+                        <p:inputMask id="telefone" value="#{funcionariosControl.funcionario.telefone}" mask="(99) 99999.9999" maxlength="20"/>
+                        <h:outputLabel for="endereco" value="Endereço:" />
+                        <p:inputText id="endereco" value="#{funcionariosControl.funcionario.endereco}" maxlength="50"/>
+                        <h:outputLabel for="funcao" value="Função:" />
+                        <p:inputText id="funcao" value="#{funcionariosControl.funcionario.funcao}" maxlength="50"/>
+                        <h:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{funcionariosControl.funcionario.email}" maxlength="63"/>
+                        <h:outputLabel for="senha" value="Senha:" />
+                        <p:password id="senha" value="#{funcionariosControl.funcionario.senha}" feedback="true" />
+                        <p:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}" ajax="false" update="growl"/>
+                    </h:panelGrid>
+                </p:panel>
         </h:form>
     </h:body>
 </html>

@@ -5,13 +5,10 @@
  */
 package Controle;
 
-import Entidades.Aluno;
-import Modelo.AlunoDAO;
 import Modelo.PerfilDAO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
-import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -31,12 +28,17 @@ public class PerfilControl implements Serializable {
     
     public String realizaLogin(){
         if(modelo.Login(email, senha) == 1){
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Aluno logado com sucesso",  "Sucesso") );
             return "Aluno/consultaAlunos";
         }
         else if(modelo.Login(email, senha) == 2){
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Funcionário logado com sucesso",  "Sucesso") );
             return "Funcionario/consultaFuncionarios";
         }
-        return "Erro";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Email ou senha inseridos estão incorretos!"));
+        return "login";
     }
     
     public String carregarAluno(){

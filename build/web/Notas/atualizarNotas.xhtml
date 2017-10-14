@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Lançar Notas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            Aluno: <h:inputText id ="aluno" value="#{notasControl.raAluno}"/><br></br>
+            Nota 1: <p:inputText id ="nota1" value="#{notasControl.nota.nota1}"/><br></br>
+            Nota 2: <p:inputText id ="nota2" value="#{notasControl.nota.nota2}"/><br></br>
+            Nota 3: <p:inputText id ="nota3" value="#{notasControl.nota.nota3}"/><br></br>
+            Nota 4: <p:inputText id ="nota4" value="#{notasControl.nota.nota4}"/><br></br>
+            <h:commandButton value="Update Notas" action="#{notasControl.atualizaNotas}"></h:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

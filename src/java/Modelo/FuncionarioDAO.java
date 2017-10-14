@@ -48,6 +48,18 @@ public class FuncionarioDAO {
         return true;
     }
     
+    public boolean retornaFuncionario(Funcionario a){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        a.setStatus(1);
+        
+        sessao.update(a);
+        trans.commit();
+        sessao.close();
+        return true;
+    }
+    
     public boolean atualizaFuncionario(Funcionario a){
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
@@ -65,6 +77,18 @@ public class FuncionarioDAO {
         
         Criteria cri = sessao.createCriteria(Funcionario.class);
         cri.add(Restrictions.eq("status", 1));
+        this.funcionarios = cri.list();
+        
+        sessao.close();
+        return funcionarios;
+    }
+    
+    public List<Funcionario> getFuncionariosDel() {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Criteria cri = sessao.createCriteria(Funcionario.class);
+        cri.add(Restrictions.eq("status", 0));
         this.funcionarios = cri.list();
         
         sessao.close();
