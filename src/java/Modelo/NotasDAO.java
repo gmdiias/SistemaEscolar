@@ -55,7 +55,7 @@ public class NotasDAO {
         trans = sessao.beginTransaction();
         
         System.out.println("Atualizando notas");
-        sessao.save(a);
+        sessao.update(a);
         trans.commit();
         sessao.close();
         return true;
@@ -95,14 +95,16 @@ public class NotasDAO {
     }
     
     
-    public Notas delNotas(Notas a) {
+    public boolean delNotas(Notas a) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
         
         a.setStatus(0);
         
+        sessao.delete(a);
+        trans.commit();
         sessao.close();
-        return (Notas) nota;
+        return true;
     }
     
     /*public List<Disciplina> getDisciplinas(){

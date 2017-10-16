@@ -102,7 +102,8 @@ public class NotasControl implements Serializable{
     
     
     public void resetaCampos(){
-        nota.setAluno(null);
+        setIdDisc(null);
+        setRaAluno(null);
         nota.setNota1(null);
         nota.setNota2(null);
         nota.setNota3(null);

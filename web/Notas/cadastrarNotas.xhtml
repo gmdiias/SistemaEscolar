@@ -8,14 +8,28 @@
     </h:head>
     <h:body>
         <h:form>
-            Id Disciplina: <h:inputText id ="disc" value="#{notasControl.idDisc}"/><br></br>
-            RA Aluno: <h:inputText id ="aluno" value="#{notasControl.raAluno}"/><br></br>
-            Nota 1: <p:inputText id ="nota1" value="#{notasControl.nota.nota1}"/><br></br>
-            Nota 2: <p:inputText id ="nota2" value="#{notasControl.nota.nota2}"/><br></br>
-            Nota 3: <p:inputText id ="nota3" value="#{notasControl.nota.nota3}"/><br></br>
-            Nota 4: <p:inputText id ="nota4" value="#{notasControl.nota.nota4}"/><br></br>
-            <h:commandButton value="Lançar Notas" action="#{notasControl.addNotas}"></h:commandButton>
-            <p:link outcome="atualizarNotas.xhtml" value="Atualizar Notas"/> 
+            <p:panel id="panel" header="Lançar Notas" style="margin-bottom:10px;">
+                 <p:fieldset legend="Inserir Novos Dados" style="margin-bottom:20px">
+                     <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="id_disc" value="Id Disciplina:" />
+                        <p:inputText id="id_disc" value="#{notasControl.idDisc}" maxlength="50"/>
+                        <h:outputLabel for="aluno" value="RA Aluno:" />
+                        <p:inputText id="aluno" value="#{notasControl.raAluno}" maxlength="50"/>
+                        <h:outputLabel for="nota1" value="Nota 1:" />
+                        <p:inputText id="nota1" value="#{notasControl.nota.nota1}" maxlength="50"/>
+                        <h:outputLabel for="nota2" value="Nota 2:" />
+                        <p:inputText id="nota2" value="#{notasControl.nota.nota2}" maxlength="50"/>
+                        <h:outputLabel for="nota3" value="Nota 3:" />
+                        <p:inputText id="nota3" value="#{notasControl.nota.nota3}" maxlength="50"/>
+                        <h:outputLabel for="nota4" value="Nota 4:" />
+                        <p:inputText id="nota4" value="#{notasControl.nota.nota4}" maxlength="50"/>
+                        
+                     </h:panelGrid>
+                    </p:fieldset>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Lançar Notas" action="#{notasControl.addNotas}" ajax="false" update="growl"/>
+                </h:panelGrid>
+            </p:panel>
         </h:form>
     </h:body>
 </html>
