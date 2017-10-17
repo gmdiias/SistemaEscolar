@@ -30,15 +30,21 @@ public class PerfilControl implements Serializable {
         if(modelo.Login(email, senha) == 1){
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Aluno logado com sucesso",  "Sucesso") );
-            return "Aluno/consultaAlunos";
+            return "Administracao/index";
         }
         else if(modelo.Login(email, senha) == 2){
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Funcionário logado com sucesso",  "Sucesso") );
-            return "Funcionario/consultaFuncionarios";
+            return "Administracao/index";
         }
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Email ou senha inseridos estão incorretos!"));
-        return "login";
+        return "index";
+    }
+    
+    public String esqueciSenha(){
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Esqueceu sua senha?", "Para recuperar sua senha entre em contato com a"
+                + " secretaria da escola com seus dados para cadastrar uma nova!"));
+        return "index";
     }
     
     public String carregarAluno(){

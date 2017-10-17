@@ -32,16 +32,15 @@ public class NotasDAO {
     public void addNotas(Notas nota, int raAluno, int idDisc){
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
+        
         Criteria cri = sessao.createCriteria(Aluno.class);
         cri.add(Restrictions.eq("id", raAluno));
         this.alunos = cri.list();    
-        
         nota.setAluno(alunos.get(0));
         
         Criteria cri2 = sessao.createCriteria(Disciplina.class);
         cri2.add(Restrictions.eq("id", idDisc));
         this.disciplinas = cri2.list();    
-        
         nota.setDisciplina(disciplinas.get(0));
         
         System.out.println("Salvando notas");

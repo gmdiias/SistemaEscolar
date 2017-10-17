@@ -3,15 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Notas/consultaNotas.xhtml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Notas/removerNotas.xhtml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Controle/NotasControl.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Modelo/NotasDAO.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Aluno/editarAluno.xhtml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Entidades/Notas.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Entidades/Disciplina.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Aplicação/Main.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Disciplina.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/PerfilControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/index.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/AlunosControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Entidades/Notas.java</file>
         </group>
     </open-files>
 </project-private>

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro de Aluno</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Dados do Aluno" style="margin-bottom:10px;">
+                <p:messages id="messages" />
+                <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="nome" value="Nome:" />
+                        <p:inputText id="nome" value="#{alunosControl.aluno.nome}" maxlength="50"/>
+                        <h:outputLabel for="dataNasc" value="Data Nascimento:" />
+                        <p:inputMask id="dataNasc" value="#{alunosControl.aluno.dataNascimento}" mask="99/99/9999" maxlength="20"/>
+                        <h:outputLabel for="cpf" value="CPF:" />
+                        <p:inputMask id="cpf" value="#{alunosControl.aluno.cpf}" mask="999.999.999-99" maxlength="20"/>
+                        <h:outputLabel for="rg" value="RG:" />
+                        <p:inputMask id="rg" value="#{alunosControl.aluno.rg}" mask="99.999.999-9" maxlength="20"/>
+                        <h:outputLabel for="sexo" value="Sexo:" />
+                        <p:inputText id="sexo" value="#{alunosControl.aluno.sexo}" maxlength="20"/>
+                        <h:outputLabel for="telefone" value="Telefone:" />
+                        <p:inputMask id="telefone" value="#{alunosControl.aluno.telefone}" mask="(99) 99999.9999" maxlength="20"/>
+                        <h:outputLabel for="endereco" value="Endereço:" />
+                        <p:inputText id="endereco" value="#{alunosControl.aluno.endereco}" maxlength="50"/>
+                        <h:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{alunosControl.aluno.email}" maxlength="63"/>
+                        <h:outputLabel for="senha" value="Senha:" />
+                        <p:password id="senha" value="#{alunosControl.aluno.senha}" feedback="true" />
+                    </h:panelGrid>
+                </p:fieldset>
+                <p:fieldset legend="Dados do Responsável" toggleable="true" toggleSpeed="500" collapsed="true">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="nomeResp" value="Nome:" />
+                        <p:inputText id="nomeResp" value="#{alunosControl.aluno.nomeCompResp}" maxlength="50"/>
+                        <h:outputLabel for="cpfResp" value="CPF:" />
+                        <p:inputMask id="cpfResp" value="#{alunosControl.aluno.cpfResp}" mask="999.999.999-99" maxlength="20"/>
+                        <h:outputLabel for="dataNascResp" value="Data Nascimento:" />
+                        <p:inputMask id="dataNascResp" value="#{alunosControl.aluno.dataNascResp}" mask="99/99/9999" maxlength="20"/>
+                        <h:outputLabel for="telefoneResp" value="Telefone:" />
+                        <p:inputMask id="telefoneResp" value="#{alunosControl.aluno.telefoneResp}" mask="(99) 99999.9999" maxlength="20"/>
+                    </h:panelGrid>
+                </p:fieldset>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" action="#{alunosControl.addAluno}" ajax="false" update="growl"/>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+
