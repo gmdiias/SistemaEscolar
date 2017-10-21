@@ -100,6 +100,11 @@ public class NotasControl implements Serializable{
         return notas;
     }
     
+    public List<Notas> listarNotasAluno(){
+        notas = notasDao.getNotasAluno(Integer.valueOf(raAluno));
+        return notas;
+    }
+    
     
     public void resetaCampos(){
         setIdDisc(null);

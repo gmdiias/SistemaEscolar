@@ -5,10 +5,14 @@
  */
 package Controle;
 
+import Entidades.Aluno;
+import Entidades.Funcionario;
+import Entidades.Pessoa;
 import Modelo.PerfilDAO;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -21,18 +25,28 @@ import javax.faces.context.FacesContext;
 public class PerfilControl implements Serializable {
     private String email;
     private String senha;
+    private Pessoa pessoa;
     private PerfilDAO modelo = new PerfilDAO();
     
     public PerfilControl() {
     }
     
     public String realizaLogin(){
-        if(modelo.Login(email, senha) == 1){
+        pessoa = modelo.Login(email, senha);
+        if(pessoa == null){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Email ou senha inseridos estão incorretos!"));
+            return "index";
+        }
+        else if(pessoa.getStatus() == 0){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Este email e senha estão desativados no sistema!"));
+            return "index";
+        }
+        else if(pessoa.getClass() == Aluno.class){
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Aluno logado com sucesso",  "Sucesso") );
-            return "Administracao/index";
+            return "Alunos/index";
         }
-        else if(modelo.Login(email, senha) == 2){
+        else if(pessoa.getClass() == Funcionario.class){
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Funcionário logado com sucesso",  "Sucesso") );
             return "Administracao/index";
@@ -66,6 +80,13 @@ public class PerfilControl implements Serializable {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
     
 }

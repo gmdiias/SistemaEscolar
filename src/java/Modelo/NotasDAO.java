@@ -93,6 +93,17 @@ public class NotasDAO {
         return nota;
     }
     
+    public List<Notas> getNotasAluno(int raAluno) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Criteria cri = sessao.createCriteria(Notas.class);
+        cri.add(Restrictions.eq("aluno.id", raAluno));
+        this.nota = cri.list();
+        System.out.println(nota.size());
+        sessao.close();
+        return nota;
+    }
     
     public boolean delNotas(Notas a) {
         sessao = HibernateUtil.getSessionFactory().openSession();
