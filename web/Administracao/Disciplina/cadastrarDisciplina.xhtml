@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Lançar Notas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Cadastrar Disciplina" style="margin-bottom:10px;">
+                 <p:fieldset legend="Inserir Novos Dados" style="margin-bottom:20px">
+                     <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="id_disc" value="Id Disciplina:" />
+                        <p:inputText id="id_disc" value="#{disciplinaControl.addDisciplina}" maxlength="50"/>
+                        <h:outputLabel for="Disciplina" value="Nome Disciplina:" />
+                     </h:panelGrid>
+                    </p:fieldset>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+
