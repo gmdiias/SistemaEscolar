@@ -13,13 +13,13 @@
                 <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="nome" value="Nome:" />
-                        <p:inputText id="nome" value="#{alunosControl.aluno.nome}" maxlength="50"/>
+                        <p:inputText id="nome" required="true" value="#{alunosControl.aluno.nome}" maxlength="50"/>
                         <h:outputLabel for="dataNasc" value="Data Nascimento:" />
-                        <p:inputMask id="dataNasc" value="#{alunosControl.aluno.dataNascimento}" mask="99/99/9999" maxlength="20"/>
+                        <p:inputMask id="dataNasc" required="true" value="#{alunosControl.aluno.dataNascimento}" mask="99/99/9999" maxlength="20"/>
                         <h:outputLabel for="cpf" value="CPF:" />
-                        <p:inputMask id="cpf" value="#{alunosControl.aluno.cpf}" mask="999.999.999-99" maxlength="20"/>
+                        <p:inputMask id="cpf" required="true" value="#{alunosControl.aluno.cpf}" mask="999.999.999-99" maxlength="20"/>
                         <h:outputLabel for="rg" value="RG:" />
-                        <p:inputMask id="rg" value="#{alunosControl.aluno.rg}" mask="99.999.999-9" maxlength="20"/>
+                        <p:inputMask id="rg" required="true" value="#{alunosControl.aluno.rg}" mask="99.999.999-9" maxlength="20"/>
                         <h:outputLabel for="sexo" value="Sexo:" />
                         <p:inputText id="sexo" value="#{alunosControl.aluno.sexo}" maxlength="20"/>
                         <h:outputLabel for="telefone" value="Telefone:" />
@@ -27,9 +27,9 @@
                         <h:outputLabel for="endereco" value="Endereço:" />
                         <p:inputText id="endereco" value="#{alunosControl.aluno.endereco}" maxlength="50"/>
                         <h:outputLabel for="email" value="Email:" />
-                        <p:inputText id="email" value="#{alunosControl.aluno.email}" maxlength="63"/>
+                        <p:inputText id="email" required="true" type="email" value="#{alunosControl.aluno.email}" maxlength="63"/>
                         <h:outputLabel for="senha" value="Senha:" />
-                        <p:password id="senha" value="#{alunosControl.aluno.senha}" feedback="true" />
+                        <p:password id="senha" required="true" value="#{alunosControl.aluno.senha}" feedback="true" />
                     </h:panelGrid>
                 </p:fieldset>
                 <p:fieldset legend="Dados do Responsável" toggleable="true" toggleSpeed="500" collapsed="true">

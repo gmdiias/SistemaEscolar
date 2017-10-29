@@ -46,9 +46,9 @@ public class Turma {
         this.alunos = alunos;
         this.disciplinas = disciplinas;
     }
-
-    public Turma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Turma(){
+        
     }
 
     public int getCodigoTurma() {

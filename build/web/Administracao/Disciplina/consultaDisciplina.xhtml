@@ -10,51 +10,27 @@
     <h:body>
         <h:form>
             <p:growl id="growl" globalOnly="true" life="2000"/>
-            <p:dataTable value="#{notasControl.listarNotas()}" var="notasLista">
+            <p:dataTable value="#{disciplinaControl.listarDisciplina()}" var="discLista">
                 <p:column>
                     <f:facet name="header">
-                        Nome Disciplina:
+                        ID:
                     </f:facet>
-                    <h:outputText value="#{notasLista.disciplina.nome}"/>
+                    <h:outputText value="#{discLista.id}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
-                        RA Aluno:
+                        Disciplina Nome:
                     </f:facet>
-                    <h:outputText value="#{notasLista.aluno.id}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 1:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota1}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 2:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota2}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 3:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota3}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 4:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota4}"/>
+                    <h:outputText value="#{discLista.nome}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
                         Alterar:
                     </f:facet>
-                    <h:commandLink value="Selecionar" action="#{notasControl.carregarNotas(notasLista)}"/>
+                    <h:commandLink value="Selecionar"/>
                 </p:column>
             </p:dataTable>
-                <p:link outcome="cadastrarNotas.xhtml" value="Cadastrar Notas"/>
+                <p:link outcome="cadastrarDisciplina.xhtml" value="Cadastrar Disciplinas"/>
         </h:form>
     </h:body>
 </html>

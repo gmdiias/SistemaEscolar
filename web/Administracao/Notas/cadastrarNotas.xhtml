@@ -12,9 +12,9 @@
                  <p:fieldset legend="Inserir Novos Dados" style="margin-bottom:20px">
                      <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="id_disc" value="Id Disciplina:" />
-                        <p:inputText id="id_disc" value="#{notasControl.idDisc}" maxlength="50"/>
+                        <p:inputText id="id_disc" required="true" value="#{notasControl.idDisc}" maxlength="50"/>
                         <h:outputLabel for="aluno" value="RA Aluno:" />
-                        <p:inputText id="aluno" value="#{notasControl.raAluno}" maxlength="50"/>
+                        <p:inputText id="aluno" required="true" value="#{notasControl.raAluno}" maxlength="50"/>
                         <h:outputLabel for="nota1" value="Nota 1:" />
                         <p:inputText id="nota1" value="#{notasControl.nota.nota1}" maxlength="50"/>
                         <h:outputLabel for="nota2" value="Nota 2:" />
