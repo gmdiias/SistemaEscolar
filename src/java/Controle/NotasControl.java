@@ -57,6 +57,9 @@ public class NotasControl implements Serializable{
     
     public String addNotas(){
         notasDao.addNotas(nota, Integer.valueOf(raAluno), Integer.valueOf(idDisc));
+        resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Nota Adicionada!"));
         return "consultaNotas";
         
     }
@@ -97,11 +100,13 @@ public class NotasControl implements Serializable{
     }
     public List<Notas> listarNotas(){
         notas = notasDao.getNotas();
+        resetaCampos();
         return notas;
     }
     
     public List<Notas> listarNotasAluno(){
         notas = notasDao.getNotasAluno(Integer.valueOf(raAluno));
+        resetaCampos();
         return notas;
     }
     

@@ -16,13 +16,13 @@
                         <h:outputLabel for="aluno" value="RA Aluno:" />
                         <p:inputText id="aluno" required="true" value="#{notasControl.raAluno}" maxlength="50"/>
                         <h:outputLabel for="nota1" value="Nota 1:" />
-                        <p:inputText id="nota1" value="#{notasControl.nota.nota1}" maxlength="50"/>
+                        <p:inputMask id="nota1" value="#{notasControl.nota.nota1}" mask="99.9" maxlength="50"/>
                         <h:outputLabel for="nota2" value="Nota 2:" />
-                        <p:inputText id="nota2" value="#{notasControl.nota.nota2}" maxlength="50"/>
+                        <p:inputMask id="nota2" value="#{notasControl.nota.nota2}" mask="99.9" maxlength="50"/>
                         <h:outputLabel for="nota3" value="Nota 3:" />
-                        <p:inputText id="nota3" value="#{notasControl.nota.nota3}" maxlength="50"/>
+                        <p:inputMask id="nota3" value="#{notasControl.nota.nota3}" mask="99.9" maxlength="50"/>
                         <h:outputLabel for="nota4" value="Nota 4:" />
-                        <p:inputText id="nota4" value="#{notasControl.nota.nota4}" maxlength="50"/>
+                        <p:inputMask id="nota4" value="#{notasControl.nota.nota4}" mask="99.9" maxlength="50"/>
                         
                      </h:panelGrid>
                     </p:fieldset>
