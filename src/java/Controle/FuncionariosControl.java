@@ -26,15 +26,23 @@ public class FuncionariosControl implements Serializable {
     private Funcionario funcionario = new Funcionario();
     private FuncionarioDAO modelo = new FuncionarioDAO();
     private List<Funcionario> funcionarios;
+    private ValidaControl valida = new ValidaControl();
     
     public FuncionariosControl() {
     }
     
     public String addFuncionario(){
-        modelo.addFuncionario(funcionario);
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Funcionário Adicionado",  "Sucesso") );
-        return "consultaFuncionarios";
+        if(valida.cpfValida(funcionario.getCpf())){
+            modelo.addFuncionario(funcionario);
+            resetaCampos();
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Funcionário Adicionado",  "Sucesso") );
+            return "consultaFuncionarios";
+        }
+        else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "CPF inválido!"));
+        }
+        return "";
     }
     
     public List<Funcionario> listarFuncionarios(){
@@ -48,10 +56,17 @@ public class FuncionariosControl implements Serializable {
     }
     
     public String updateFuncionario(){
-        modelo.atualizaFuncionario(funcionario);
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Funcionário Atualizado",  "Sucesso") );
-        return "consultaFuncionarios";
+        if(valida.cpfValida(funcionario.getCpf())){
+            modelo.atualizaFuncionario(funcionario);
+            resetaCampos();
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Funcionário Atualizado",  "Sucesso") );
+            return "consultaFuncionarios";
+        }
+        else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "CPF inválido!"));
+        }
+        return "";
     }
     
     public String deleteFuncionario(){

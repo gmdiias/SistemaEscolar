@@ -24,16 +24,23 @@ public class AlunosControl implements Serializable {
     private Aluno aluno = new Aluno();
     private AlunoDAO modelo = new AlunoDAO();
     private List<Aluno> alunos;
+    private ValidaControl valida = new ValidaControl();
     
     public AlunosControl() {
     }
     
     public String addAluno(){
-        modelo.addAluno(aluno);
-        resetaCampos();
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Aluno Adicionado",  "Sucesso") );
-        return "consultaAlunos";
+        if(valida.cpfValida(aluno.getCpf())){
+            modelo.addAluno(aluno);
+            resetaCampos();
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Aluno Adicionado",  "Sucesso") );
+            return "consultaAlunos";
+        }
+        else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "CPF inválido!"));
+        }
+        return "";
     }
     
     public List<Aluno> listarAlunos(){
@@ -49,11 +56,17 @@ public class AlunosControl implements Serializable {
     }
     
     public String updateAluno(){
-        modelo.atualizaAluno(aluno);
-        resetaCampos();
-        FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Aluno Atualizado",  "Sucesso") );
-        return "consultaAlunos";
+        if(valida.cpfValida(aluno.getCpf())){
+            modelo.atualizaAluno(aluno);
+            resetaCampos();
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Aluno Atualizado",  "Sucesso") );
+            return "consultaAlunos";
+        }
+        else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "CPF inválido!"));
+        }
+        return "";
     }
     
     public String deleteAluno(){

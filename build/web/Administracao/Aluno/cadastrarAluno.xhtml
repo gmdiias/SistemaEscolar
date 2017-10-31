@@ -9,27 +9,27 @@
     <h:body>
         <h:form>
             <p:panel id="panel" header="Cadastro de Alunos" style="margin-bottom:10px;">
-                <p:messages id="messages" />
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                 <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="nome" value="Nome:" />
-                        <p:inputText id="nome" required="true" value="#{alunosControl.aluno.nome}" maxlength="50"/>
+                        <p:inputText id="nome" required="true" value="#{alunosControl.aluno.nome}" maxlength="50" requiredMessage="Nome do Aluno inválido!"/>
                         <h:outputLabel for="dataNasc" value="Data Nascimento:" />
-                        <p:inputMask id="dataNasc" required="true" value="#{alunosControl.aluno.dataNascimento}" mask="99/99/9999" maxlength="20"/>
+                        <p:inputMask id="dataNasc" required="true" value="#{alunosControl.aluno.dataNascimento}" mask="99/99/9999" maxlength="20" requiredMessage="Data de nascimento inválida!"/>
                         <h:outputLabel for="cpf" value="CPF:" />
-                        <p:inputMask id="cpf" required="true" value="#{alunosControl.aluno.cpf}" mask="999.999.999-99" maxlength="20"/>
+                        <p:inputMask id="cpf" required="true" value="#{alunosControl.aluno.cpf}" mask="999.999.999-99" maxlength="20" requiredMessage="CPF inválido!"/>
                         <h:outputLabel for="rg" value="RG:" />
-                        <p:inputMask id="rg" required="true" value="#{alunosControl.aluno.rg}" mask="99.999.999-9" maxlength="20"/>
+                        <p:inputMask id="rg" required="true" value="#{alunosControl.aluno.rg}" mask="99.999.999-9" maxlength="20" requiredMessage="RG inválido!"/>
                         <h:outputLabel for="sexo" value="Sexo:" />
-                        <p:inputText id="sexo" value="#{alunosControl.aluno.sexo}" maxlength="20"/>
+                        <p:inputText id="sexo" value="#{alunosControl.aluno.sexo}" maxlength="20" />
                         <h:outputLabel for="telefone" value="Telefone:" />
-                        <p:inputMask id="telefone" value="#{alunosControl.aluno.telefone}" mask="(99) 99999.9999" maxlength="20"/>
+                        <p:inputMask id="telefone" required="true" value="#{alunosControl.aluno.telefone}" mask="(99) 99999.9999" maxlength="20" requiredMessage="Telefone inválido!"/>
                         <h:outputLabel for="endereco" value="Endereço:" />
                         <p:inputText id="endereco" value="#{alunosControl.aluno.endereco}" maxlength="50"/>
                         <h:outputLabel for="email" value="Email:" />
-                        <p:inputText id="email" required="true" type="email" value="#{alunosControl.aluno.email}" maxlength="63"/>
+                        <p:inputText id="email" required="true" type="email" value="#{alunosControl.aluno.email}" maxlength="63" requiredMessage="Email inválido!"/>
                         <h:outputLabel for="senha" value="Senha:" />
-                        <p:password id="senha" required="true" value="#{alunosControl.aluno.senha}" feedback="true" />
+                        <p:password id="senha" required="true" value="#{alunosControl.aluno.senha}" feedback="true" requiredMessage="Senha inválida!"/>
                     </h:panelGrid>
                 </p:fieldset>
                 <p:fieldset legend="Dados do Responsável" toggleable="true" toggleSpeed="500" collapsed="true">

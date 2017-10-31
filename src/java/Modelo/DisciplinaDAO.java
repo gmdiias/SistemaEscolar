@@ -51,7 +51,7 @@ public class DisciplinaDAO {
         trans = sessao.beginTransaction();
         
         Criteria cri = sessao.createCriteria(Disciplina.class);
-        this.alunos = cri.list();
+        this.disciplinas = cri.list();
         
         sessao.close();
         return disciplinas;

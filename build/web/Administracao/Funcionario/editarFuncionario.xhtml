@@ -9,7 +9,7 @@
     <h:body>
         <h:form>
             <p:panel id="panel" header="Editar Funcionário ID: #{funcionariosControl.funcionario.id}" style="margin-bottom:10px;">
-                <p:messages id="messages" />
+                <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="nome" value="Nome:" />
                         <p:inputText id="nome" value="#{funcionariosControl.funcionario.nome}" maxlength="50"/>

@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Administracao/Notas/atualizarNotas.xhtml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/web/Administracao/Notas/cadastrarNotas.xhtml</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Controle/NotasControl.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Modelo/NotasDAO.java</file>
-            <file>file:/C:/Users/Pichau/Documents/GitHub/SistemaEscolar/src/java/Entidades/Notas.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/ValidaControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/DisciplinaControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/cadastrarAluno.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/AlunosControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/PerfilControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Funcionario/editarFuncionario.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/DisciplinaDAO.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/editarAluno.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/index.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/consultaAlunosDel.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/index.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/consultaAlunos.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Disciplina/cadastrarDisciplina.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Funcionario/cadastrarFuncionario.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Disciplina/consultaDisciplina.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/FuncionariosControl.java</file>
         </group>
     </open-files>
 </project-private>
