@@ -5,38 +5,53 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Consultar Alunos</title>
+        <title>Gerenciamento de Alunos</title>
     </h:head>
     <h:body>
-        <h:form>
-            <p:growl id="growl" globalOnly="true" life="2000"/>
-            <p:dataTable value="#{alunosControl.listarAlunos()}" var="alunoslista">
-                <p:column>
-                    <f:facet name="header">
-                        ID:
-                    </f:facet>
-                    <h:outputText value="#{alunoslista.id}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nome:
-                    </f:facet>
-                    <h:outputText value="#{alunoslista.nome}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        CPF:
-                    </f:facet>
-                    <h:outputText value="#{alunoslista.cpf}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Ações:
-                    </f:facet>
-                    <p:commandLink value="Selecionar" action="#{alunosControl.carregarAluno(alunoslista)}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-        <p:link outcome="cadastrarAluno.xhtml" value="Cadastrar Aluno"/> | <p:link outcome="consultaAlunosDel.xhtml" value="Alunos Deletados"/>
+        <p:panel id="panel" header="Gerenciamento de Alunos" style="margin-bottom:10px;">
+            <h:form>
+                <p:fieldset style="margin-bottom:10px">
+                    <p:button outcome="cadastrarAluno.xhtml" value="Cadastrar Aluno" icon="fa fa-fw fa-remove"/>
+                    <p:button outcome="consultaAlunosDel.xhtml" value="Lista Alunos Deletados" icon="ui-icon-star"/>    
+                </p:fieldset>
+                
+                <p:fieldset legend="Buscar Aluno" style="margin-bottom:10px">
+                    <h:outputLabel for="raAlunoBusca" value="ID: " />
+                    <p:inputText id="raAlunoBusca" value="#{alunosControl.raAlunoBusca}" maxlength="20"/>
+                    <p:commandButton value="Buscar" action="#{alunosControl.buscarAluno}" ajax="false" update="growl"/>
+                </p:fieldset>
+            </h:form>
+            <p:fieldset legend="Lista de Alunos" style="margin-bottom:10px">
+                <h:form>
+                    <p:growl id="growl" globalOnly="true" life="2000"/>
+                    <p:dataTable value="#{alunosControl.listarAlunos()}" var="alunoslista">
+                        <p:column>
+                            <f:facet name="header">
+                                ID:
+                            </f:facet>
+                            <h:outputText value="#{alunoslista.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                Nome:
+                            </f:facet>
+                            <h:outputText value="#{alunoslista.nome}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                CPF:
+                            </f:facet>
+                            <h:outputText value="#{alunoslista.cpf}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                Ações:
+                            </f:facet>
+                            <p:commandLink value="Selecionar" action="#{alunosControl.carregarAluno(alunoslista)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+        </p:panel>
     </h:body>
 </html>

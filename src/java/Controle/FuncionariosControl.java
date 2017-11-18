@@ -27,6 +27,7 @@ public class FuncionariosControl implements Serializable {
     private FuncionarioDAO modelo = new FuncionarioDAO();
     private List<Funcionario> funcionarios;
     private ValidaControl valida = new ValidaControl();
+    private String idFuncionario;
     
     public FuncionariosControl() {
     }
@@ -47,6 +48,7 @@ public class FuncionariosControl implements Serializable {
     
     public List<Funcionario> listarFuncionarios(){
         funcionarios = modelo.getFuncionarios();
+        resetaCampos();
         return funcionarios;
     }
     
@@ -71,6 +73,7 @@ public class FuncionariosControl implements Serializable {
     
     public String deleteFuncionario(){
         modelo.deleteFuncionario(funcionario);
+        resetaCampos();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Funcionário Deletado",  "Sucesso") );
         return "consultaFuncionarios";
@@ -80,6 +83,7 @@ public class FuncionariosControl implements Serializable {
         modelo.retornaFuncionario(a);
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Funcionário Reativado",  "Sucesso") );
+        resetaCampos();
         return "consultaFuncionarios";
     }
     
@@ -95,6 +99,29 @@ public class FuncionariosControl implements Serializable {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+
+    public String getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(String idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+    
+    public String buscarFuncionario(){
+        int id;
+        id = Integer.valueOf(idFuncionario);
+        resetaCampos();
+        funcionario = modelo.getFuncionarioBusca(id);
+        
+        if(funcionario == null){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ID não encontrado!", "ID não encontrado!"));
+            funcionario = new Funcionario();
+            return "consultaFuncionarios";
+        }
+        return "editarFuncionario";
+    }
+
     
     public void resetaCampos(){
         funcionario.setNome(null);
@@ -107,6 +134,7 @@ public class FuncionariosControl implements Serializable {
         funcionario.setEmail(null);
         funcionario.setSenha(null);
         funcionario.setFuncao(null);
+        idFuncionario = null;
     }
     
 }

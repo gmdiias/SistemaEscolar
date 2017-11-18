@@ -25,6 +25,7 @@ public class AlunosControl implements Serializable {
     private AlunoDAO modelo = new AlunoDAO();
     private List<Aluno> alunos;
     private ValidaControl valida = new ValidaControl();
+    private String raAlunoBusca;
     
     public AlunosControl() {
     }
@@ -69,6 +70,20 @@ public class AlunosControl implements Serializable {
         return "";
     }
     
+    public String buscarAluno(){
+        int ra;
+        ra = Integer.valueOf(raAlunoBusca);
+        resetaCampos();
+        aluno = modelo.getAlunoBusca(ra);
+        System.out.println("Pessoa buscada");
+        if(aluno == null){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "ID não encontrado!", "ID não encontrado!"));
+            aluno = new Aluno();
+            return "consultaAlunos";
+        }
+        return "editarAluno";
+    }
+    
     public String deleteAluno(){
         modelo.deleteAluno(aluno);
         resetaCampos();
@@ -105,6 +120,16 @@ public class AlunosControl implements Serializable {
     public void setModelo(AlunoDAO modelo) {
         this.modelo = modelo;
     }
+
+    public String getRaAlunoBusca() {
+        return raAlunoBusca;
+    }
+
+    public void setRaAlunoBusca(String raAlunoBusca) {
+        this.raAlunoBusca = raAlunoBusca;
+    }
+    
+    
     
     public void resetaCampos(){
         aluno.setNome(null);
@@ -120,5 +145,6 @@ public class AlunosControl implements Serializable {
         aluno.setNomeCompResp(null);
         aluno.setTelefoneResp(null);
         aluno.setDataNascResp(null);
+        raAlunoBusca = null;
     }
 }

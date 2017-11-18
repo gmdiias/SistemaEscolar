@@ -7,16 +7,23 @@
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/DisciplinaControl.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/cadastrarAluno.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/AlunosControl.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Funcionario/consultaFuncionarios.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/PerfilControl.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Funcionario/editarFuncionario.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/DisciplinaDAO.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/editarAluno.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/index.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/NotasControl.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/consultaAlunosDel.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/PerfilDAO.java</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/NotasDAO.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/index.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Aluno/consultaAlunos.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/AlunoDAO.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Disciplina/cadastrarDisciplina.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Funcionario/cadastrarFuncionario.xhtml</file>
+            <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Modelo/FuncionarioDAO.java</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/web/Administracao/Disciplina/consultaDisciplina.xhtml</file>
             <file>file:/C:/Users/User/Documents/GitHub/SistemaEscolar/src/java/Controle/FuncionariosControl.java</file>

@@ -8,41 +8,56 @@
         <title>Consultar Funcionários</title>
     </h:head>
     <h:body>
-        <h:form>
-            <p:growl id="growl" globalOnly="true" life="2000"/>
-            <p:dataTable value="#{funcionariosControl.listarFuncionarios()}" var="funcionariosL">
-                <p:column>
-                    <f:facet name="header">
-                        ID:
-                    </f:facet>
-                    <h:outputText value="#{funcionariosL.id}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nome:
-                    </f:facet>
-                    <h:outputText value="#{funcionariosL.nome}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Função:
-                    </f:facet>
-                    <h:outputText value="#{funcionariosL.funcao}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        CPF:
-                    </f:facet>
-                    <h:outputText value="#{funcionariosL.cpf}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Ações:
-                    </f:facet>
-                    <h:commandLink value="Selecionar" action="#{funcionariosControl.carregarFuncionario(funcionariosL)}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-        <p:link outcome="cadastrarFuncionario.xhtml" value="Cadastrar Funcionario"/> | <p:link outcome="consultaFuncionariosDel.xhtml" value="Funcionario Deletados"/>
+        <p:panel id="panel" header="Gerenciamento de Funcionários" style="margin-bottom:10px;">
+            <h:form>
+                <p:fieldset style="margin-bottom:10px">
+                    <p:button outcome="cadastrarFuncionario.xhtml" value="Cadastrar Funcionário" icon="fa fa-fw fa-remove"/>
+                    <p:button outcome="consultaFuncionariosDel.xhtml" value="Lista Funcionários Deletados" icon="ui-icon-star"/>    
+                </p:fieldset>
+                
+                <p:fieldset legend="Buscar Funcionario" style="margin-bottom:10px">
+                    <h:outputLabel for="idFuncionario" value="ID: " />
+                    <p:inputText id="idFuncionario" value="#{funcionariosControl.idFuncionario}" maxlength="20"/>
+                    <p:commandButton value="Buscar" action="#{funcionariosControl.buscarFuncionario}" ajax="false" update="growl"/>
+                </p:fieldset>
+            </h:form>
+            <p:fieldset legend="Lista de Funcionários" style="margin-bottom:10px">
+                <h:form>
+                    <p:growl id="growl" globalOnly="true" life="2000"/>
+                    <p:dataTable value="#{funcionariosControl.listarFuncionarios()}" var="funcionariosL">
+                        <p:column>
+                            <f:facet name="header">
+                                ID:
+                            </f:facet>
+                            <h:outputText value="#{funcionariosL.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                Nome:
+                            </f:facet>
+                            <h:outputText value="#{funcionariosL.nome}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                Função:
+                            </f:facet>
+                            <h:outputText value="#{funcionariosL.funcao}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                CPF:
+                            </f:facet>
+                            <h:outputText value="#{funcionariosL.cpf}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                Ações:
+                            </f:facet>
+                            <h:commandLink value="Selecionar" action="#{funcionariosControl.carregarFuncionario(funcionariosL)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:fieldset>
+        </p:panel>
     </h:body>
 </html>

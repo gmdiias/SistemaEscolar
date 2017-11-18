@@ -95,5 +95,22 @@ public class FuncionarioDAO {
         return funcionarios;
     }
     
+    public Funcionario getFuncionarioBusca(int idFuncionario) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Criteria cri = sessao.createCriteria(Funcionario.class);
+        cri.add(Restrictions.eq("id", idFuncionario));
+        this.funcionarios = cri.list();
+        
+        sessao.close();
+        
+        if(funcionarios.size() > 0){
+            return funcionarios.get(0);
+        }
+        System.out.println("Funcionario nao encontrado");
+        return null;
+    }
+    
     
 }

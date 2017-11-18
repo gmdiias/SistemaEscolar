@@ -69,6 +69,23 @@ public class AlunoDAO {
         sessao.close();
         return true;
     }
+    
+    public Aluno getAlunoBusca(int raAluno) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        Criteria cri = sessao.createCriteria(Aluno.class);
+        cri.add(Restrictions.eq("id", raAluno));
+        this.alunos = cri.list();
+        
+        sessao.close();
+        
+        if(alunos.size() > 0){
+            return alunos.get(0);
+        }
+        System.out.println("Aluno nao encontrado");
+        return null;
+    }
 
     public List<Aluno> getAlunos() {
         sessao = HibernateUtil.getSessionFactory().openSession();
