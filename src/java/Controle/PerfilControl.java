@@ -47,9 +47,24 @@ public class PerfilControl implements Serializable {
             return "Alunos/index";
         }
         else if(pessoa.getClass() == Funcionario.class){
+            Funcionario funcionario = new Funcionario();
+            funcionario = (Funcionario) pessoa;
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage("Funcionário logado com sucesso",  "Sucesso") );
-            return "Administracao/index";
+            if(funcionario.getPermissao() == 1){
+                System.out.println("Logado como Professor");
+                context.addMessage(null, new FacesMessage(funcionario.getFuncao() + " logado com sucesso",  "Sucesso") );
+                return "Professor/index";
+            }
+            else if(funcionario.getPermissao() == 2){
+                System.out.println("Logado como Secretária");
+                context.addMessage(null, new FacesMessage(funcionario.getFuncao() + " logado com sucesso",  "Sucesso") );
+                return "Administracao/index";
+            }
+            else{
+                System.out.println("Funcionario logado");
+                context.addMessage(null, new FacesMessage(funcionario.getFuncao() + " logado com sucesso",  "Sucesso") );
+                return "Funcionario/index";
+            }
         }
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Email ou senha inseridos estão incorretos!"));
         return "index";

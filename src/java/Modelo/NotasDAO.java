@@ -105,6 +105,18 @@ public class NotasDAO {
         return nota;
     }
     
+    public List<Notas> getNotasDisc(int idDisc) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        System.out.println("Buscando Disc ID " + idDisc);
+        Criteria cri = sessao.createCriteria(Notas.class);
+        cri.add(Restrictions.eq("disciplina.id", idDisc));
+        this.nota = cri.list();
+        System.out.println(nota.size());
+        sessao.close();
+        return nota;
+    }
+    
     public boolean delNotas(Notas a) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();

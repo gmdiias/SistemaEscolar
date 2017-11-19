@@ -110,6 +110,16 @@ public class NotasControl implements Serializable{
         return notas;
     }
     
+    public String buscarDisc(){
+        return "consultaNotas";
+    }
+    
+    public List<Notas> listarNotasDisc(){
+        notas = notasDao.getNotasDisc(Integer.valueOf(idDisc));
+        resetaCampos();
+        return notas;
+    }
+    
     
     public void resetaCampos(){
         setIdDisc(null);

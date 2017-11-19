@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Sistema Escolar v0.1</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+            <p:growl id="growl" globalOnly="true" life="2000"/>
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="120" resizable="false" closable="true" collapsible="true">
+                    <center>
+                        <img src="../faces/Imgs/logo.png" height="97"/>
+                    </center>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="65" closable="true" collapsible="true">
+                    <center>
+                    © Copyright 2017 - All Rights Reserved
+                    </center>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="250" header="Menu" collapsible="false">
+                    <p:menu>
+                        <p:submenu label="Professor">
+                            <p:menuitem value="Meus Dados" url="../faces/Professor/consulta.xhtml" target="meio" />
+                            <p:menuitem value="Ver Materias" url="../faces/Professor/consultaMaterias.xhtml" target="meio" />
+                            <p:menuitem value="Notas Lançadas" url="../faces/Professor/consultaMaterias.xhtml" target="meio" />
+                            <p:menuitem value="Faltas Lançadas" url="../faces/Professor/consultaMaterias.xhtml" target="meio" />
+                            <p:menuitem value="Sair" url="../faces/index.xhtml" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <center>
+                        <iframe name="meio" src="" height="500" width="100%" frameborder="no"/>
+                    </center>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
