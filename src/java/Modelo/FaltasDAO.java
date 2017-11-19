@@ -75,7 +75,7 @@ public List<Faltas> getFaltas() {
         
         Criteria cri = sessao.createCriteria(Faltas.class);
         this.faltas = cri.list();
-        System.out.println(faltas.size());
+        System.out.println("Numero de faltas "+faltas.size());
         sessao.close();
         return faltas;
     }

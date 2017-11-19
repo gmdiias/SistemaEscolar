@@ -43,16 +43,15 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
     <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
-    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample2</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/sample</property>
     <property name="hibernate.connection.username">app</property>
     <property name="hibernate.connection.password">app</property>
-    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
     <mapping class="Entidades.Pessoa"/>
     <mapping class="Entidades.Aluno"/>
     <mapping class="Entidades.Funcionario"/>
     <mapping class="Entidades.Turma"/>
     <mapping class="Entidades.Disciplina"/>
     <mapping class="Entidades.Notas"/>
-    <mapping class="Entidades.Faltas"/>
   </session-factory>
 </hibernate-configuration>

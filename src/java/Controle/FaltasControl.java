@@ -111,7 +111,7 @@ public class FaltasControl implements Serializable {
     public void resetaCampos(){
         setIdDisc(null);
         setRaAluno(null);
-        falta.setFalta(null);
+        falta.setFalta(0);
         
     }
     public void addMessage(String summary, String detail) {

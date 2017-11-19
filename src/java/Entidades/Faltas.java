@@ -34,18 +34,11 @@ public class Faltas {
     @JoinColumn(name = "ID_Disc")
     public Disciplina disciplina;
     @Column(length = 5, name = "Faltas", nullable = true)
-    private Integer falta;
+    private int falta;
 
     public Faltas() {
     }
 
-    public Faltas(/*Integer id, int status_f, Aluno aluno, Disciplina disciplina,*/ Integer falta) {
-        /*this.id = id;
-        this.status_f = status_f;
-        this.aluno = aluno;
-        this.disciplina = disciplina;*/
-        this.falta = falta;
-    }
 
     public Integer getId() {
         return id;
@@ -79,12 +72,13 @@ public class Faltas {
         this.disciplina = disciplina;
     }
 
-    public Integer getFalta() {
+    public int getFalta() {
         return falta;
     }
 
-    public void setFalta(Integer falta) {
+    public void setFalta(int falta) {
         this.falta = falta;
     }
+
     
 }

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Gerenciamento de Alunos</title>
+    </h:head>
+    <h:body>
+        <p:panel id="panel" header="Gerenciamento de Materias" style="margin-bottom:10px;">
+            <h:form>
+                
+                <p:fieldset legend="Buscar Notas Materia" style="margin-bottom:10px">
+                    <h:outputLabel for="idDisc" value="ID: " />
+                    <p:inputText id="idDisc" required="true" value="#{notasControl.idDisc}" maxlength="20"/>
+                    <p:commandButton value="Buscar" action="#{notasControl.buscarDisc}" ajax="false" update="growl"/>
+                </p:fieldset>
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
