@@ -119,6 +119,10 @@ public class NotasControl implements Serializable{
         nota.setNota3(null);
         nota.setNota4(null);
     }
+    public void addMessage(String summary, String detail) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary, detail);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 
     
     

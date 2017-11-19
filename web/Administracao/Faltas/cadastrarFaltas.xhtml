@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Lançar Faltas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Lançar Faltas" style="margin-bottom:10px;">
+                 <p:fieldset legend="Inserir Novos Dados" style="margin-bottom:20px">
+                     <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="id_disc" value="Id Disciplina:" />
+                        <p:inputText id="id_disc" required="true" value="#{faltasControl.idDisc}" maxlength="50"/>
+                        <h:outputLabel for="aluno" value="RA Aluno:" />
+                        <p:inputText id="aluno" required="true" value="#{faltasControl.raAluno}" maxlength="50"/>
+                        <h:outputLabel for="falta" value="Faltas:" />
+                        <p:inputMask id="falta" value="#{faltasControl.falta.falta}" mask="99" maxlength="50"/>
+                       
+                     </h:panelGrid>
+                    </p:fieldset>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Lançar Faltas" action="#{faltasControl.addFaltas}" ajax="false" update="growl"/>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

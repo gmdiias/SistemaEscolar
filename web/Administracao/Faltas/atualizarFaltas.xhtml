@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Lançar Faltas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Atualizar Faltas #{faltasControl.raAluno}" style="margin-bottom:10px;">
+                <p:fieldset legend="Faltas" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="idDisc" value="ID Disciplina:" />
+                        <p:inputText id="idDisc" value="#{faltasControl.idDisc}" maxlength="50"/>
+                        <h:outputLabel for="raAluno" value="RA Aluno:" />
+                        <p:inputText id="raAluno" value="#{faltasControl.raAluno}" maxlength="50"/>
+                        <h:outputLabel for="falta" value="Faltas:" />
+                        <p:inputMask id="falta" value="#{faltasControl.falta.falta}" mask="99" maxlength="50"/>
+                      
+                    </h:panelGrid>
+             </p:fieldset>
+            <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Atualizar Faltas" action="#{faltasControl.atualizaFaltas()}" ajax="false" update="growl" />
+                    
+                    <p:growl id="message" showDetail="true" />
+ 
+                    <p:commandButton value="Deletar Faltas" action="#{faltasControl.delFaltas()}" update="message">
+                    <p:confirm header="Confirmation" message="Você tem certeza?" icon="ui-icon-alert" />
+                   </p:commandButton>
+ 
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>        
+            
+                                   
+                                               
+                                              
+            </h:panelGrid>
+        </p:panel>
+        </h:form>
+
+    </h:body>
+</html>
+

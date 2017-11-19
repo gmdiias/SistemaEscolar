@@ -11,7 +11,7 @@
             <p:panel id="panel" header="Atualizar Notas #{notasControl.raAluno}" style="margin-bottom:10px;">
                 <p:fieldset legend="Notas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="idDisc" value="Id Disciplina:" />
+                        <h:outputLabel for="idDisc" value="ID Disciplina:" />
                         <p:inputText id="idDisc" value="#{notasControl.idDisc}" maxlength="50"/>
                         <h:outputLabel for="raAluno" value="RA Aluno:" />
                         <p:inputText id="raAluno" value="#{notasControl.raAluno}" maxlength="50"/>
@@ -22,12 +22,24 @@
                         <h:outputLabel for="nota3" value="Nota 3:" />
                         <p:inputMask id="nota3" value="#{notasControl.nota.nota3}" mask="99.9" maxlength="50"/>
                         <h:outputLabel for="nota4" value="Nota 4:" />
-                        <p:inputMask id="nota4" value="#{notasControl.nota.nota4}" mask="99.9" maxlength="50"/>
+                        <p:inputMask id="nota4" value="#{notasControl.nota.nota1}" mask="99.9" maxlength="50"/>
                     </h:panelGrid>
              </p:fieldset>
             <h:panelGrid columns="2" cellpadding="5">
                     <p:commandButton value="Atualizar Notas" action="#{notasControl.atualizaNotas()}" ajax="false" update="growl" />
-                    <p:commandButton value="Remover Notas" action="#{notasControl.delNotas()}" ajax="false" update="growl"/>
+                    
+                    <p:growl id="message" showDetail="true" />
+ 
+                    <p:commandButton value="Remover Notas" action="#{notasControl.delNoltas()}" update="message">
+                    <p:confirm header="Confirmation" message="Você tem certeza?" icon="ui-icon-alert" />
+                   </p:commandButton>
+ 
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                    
+                    
                 </h:panelGrid>
         </p:panel>
         </h:form>

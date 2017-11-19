@@ -13,15 +13,21 @@
             <p:dataTable value="#{notasControl.listarNotas()}" var="notasLista">
                 <p:column>
                     <f:facet name="header">
-                        Nome Disciplina:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.disciplina.nome}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
                         ID Aluno:
                     </f:facet>
                     <h:outputText value="#{notasLista.aluno.id}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Nome Aluno:
+                    </f:facet>
+                    <h:outputText value="#{notasLista.aluno.nome}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        Nome Disciplina:
+                    </f:facet>
+                    <h:outputText value="#{notasLista.disciplina.nome}"/>
                 </p:column>
                 <p:column>
                     <f:facet name="header">
