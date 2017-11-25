@@ -26,6 +26,7 @@ public class AlunosControl implements Serializable {
     private List<Aluno> alunos;
     private ValidaControl valida = new ValidaControl();
     private String raAlunoBusca;
+    private String idTurma;
     
     public AlunosControl() {
     }
@@ -68,6 +69,15 @@ public class AlunosControl implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "CPF inválido!"));
         }
         return "";
+    }
+    
+    public String matriculaAluno(){
+        int id = Integer.parseInt(idTurma);
+        modelo.matriculaAluno(aluno, id);
+        resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Matriculado",  "Sucesso") );
+        return "consultaAlunos";
     }
     
     public String buscarAluno(){
@@ -127,6 +137,14 @@ public class AlunosControl implements Serializable {
 
     public void setRaAlunoBusca(String raAlunoBusca) {
         this.raAlunoBusca = raAlunoBusca;
+    }
+
+    public String getIdTurma() {
+        return idTurma;
+    }
+
+    public void setIdTurma(String idTurma) {
+        this.idTurma = idTurma;
     }
     
     

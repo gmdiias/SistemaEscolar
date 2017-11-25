@@ -55,7 +55,7 @@ public class PerfilControl implements Serializable {
                 context.addMessage(null, new FacesMessage(funcionario.getFuncao() + " logado com sucesso",  "Sucesso") );
                 return "Professor/index";
             }
-            else if(funcionario.getPermissao() == 2){
+            else if((funcionario.getPermissao() == 2) || (funcionario.getPermissao() == 3)){
                 System.out.println("Logado como Secretária");
                 context.addMessage(null, new FacesMessage(funcionario.getFuncao() + " logado com sucesso",  "Sucesso") );
                 return "Administracao/index";

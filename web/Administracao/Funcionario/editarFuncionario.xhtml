@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Editar Funcionário #{funcionariosControl.funcionario.id}</title>
     </h:head>
@@ -27,6 +28,13 @@
                         <p:inputText id="endereco" value="#{funcionariosControl.funcionario.endereco}" maxlength="50"/>
                         <h:outputLabel for="funcao" value="Função:" />
                         <p:inputText id="funcao" value="#{funcionariosControl.funcionario.funcao}" maxlength="50"/>
+                        <h:outputLabel for="permissao" value="Permissão:" />
+                        <p:selectOneListbox id="permissao" value="#{funcionariosControl.funcionario.permissao}">
+                            <f:selectItem itemLabel="Outro" itemValue="0" />
+                            <f:selectItem itemLabel="Professor" itemValue="1" />
+                            <f:selectItem itemLabel="Secretária" itemValue="2" />
+                            <f:selectItem itemLabel="Diretor" itemValue="2" />
+                        </p:selectOneListbox>
                         <h:outputLabel for="email" value="Email:" />
                         <p:inputText id="email" value="#{funcionariosControl.funcionario.email}" maxlength="63"/>
                         <h:outputLabel for="senha" value="Senha:" />

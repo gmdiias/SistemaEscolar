@@ -53,5 +53,6 @@ Contributor(s):
     <mapping class="Entidades.Turma"/>
     <mapping class="Entidades.Disciplina"/>
     <mapping class="Entidades.Notas"/>
+    <mapping class="Entidades.Faltas"/>
   </session-factory>
 </hibernate-configuration>

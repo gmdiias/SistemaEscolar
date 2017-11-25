@@ -8,6 +8,7 @@ package Modelo;
 import Entidades.Aluno;
 import Entidades.Disciplina;
 import Entidades.Professor;
+import Entidades.Turma;
 import Hibernate.HibernateUtil;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,8 @@ public class AlunoDAO {
     private Session sessao;
     private Transaction trans;
     private List<Aluno> alunos;
+    private List<Turma> turma;
+    //private Turma tur = new Turma("Teste"); // Remover
     
     public void addAluno(Aluno aluno){
         sessao = HibernateUtil.getSessionFactory().openSession();
@@ -33,6 +36,23 @@ public class AlunoDAO {
         sessao.save(aluno);
         trans.commit();
         sessao.close();
+    }
+     public boolean matriculaAluno(Aluno a, int idTurma){
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        
+        //sessao.save(tur);
+       
+        Criteria cri = sessao.createCriteria(Turma.class);
+        cri.add(Restrictions.eq("id", idTurma));
+        this.turma = cri.list(); 
+        a.setTurma(turma.get(0));
+        
+        sessao.update(a);
+        
+        trans.commit();
+        sessao.close();
+        return true;
     }
     
     public boolean deleteAluno(Aluno a){

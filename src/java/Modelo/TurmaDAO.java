@@ -40,9 +40,9 @@ public class TurmaDAO {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
         
-        Turma turma = new Turma(descricaoTurma, alunos, disciplinas);
+        //Turma turma = new Turma(descricaoTurma, alunos, disciplinas);
         
-        sessao.save(turma);
+        //sessao.save(turma);
         trans.commit();
         sessao.close();
         

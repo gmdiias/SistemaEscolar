@@ -31,7 +31,7 @@ import javax.persistence.Table;
 public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int codigoTurma;
+    private int id;
     @Column(length = 50, name = "DESCRICAO", nullable = false)
     private String descricaoTurma; 
     @OneToMany
@@ -41,10 +41,8 @@ public class Turma {
     @JoinColumn(name = "ID_DISC")
     private List<Disciplina> disciplinas;
 
-    public Turma(String descricaoTurma, List<Aluno> alunos, List<Disciplina> disciplinas) {
+    public Turma(String descricaoTurma) {
         this.descricaoTurma = descricaoTurma;
-        this.alunos = alunos;
-        this.disciplinas = disciplinas;
     }
     
     public Turma(){
@@ -52,11 +50,11 @@ public class Turma {
     }
 
     public int getCodigoTurma() {
-        return codigoTurma;
+        return id;
     }
 
     public void setCodigoTurma(int codigoTurma) {
-        this.codigoTurma = codigoTurma;
+        this.id = codigoTurma;
     }
 
     public String getDescricaoTurma() {

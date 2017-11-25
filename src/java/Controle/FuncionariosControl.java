@@ -34,16 +34,6 @@ public class FuncionariosControl implements Serializable {
     
     public String addFuncionario(){
         if(valida.cpfValida(funcionario.getCpf())){
-            funcionario.setPermissao(0);
-            if(funcionario.getFuncao().charAt(0) == 'p' || funcionario.getFuncao().charAt(0) == 'P'){
-                funcionario.setPermissao(1);
-            }
-            else if(funcionario.getFuncao().charAt(0) == 's' || funcionario.getFuncao().charAt(0) == 'S'){
-                funcionario.setPermissao(2);
-            }
-            else if(funcionario.getFuncao().charAt(0) == 'd' || funcionario.getFuncao().charAt(0) == 'D'){
-                funcionario.setPermissao(2);
-            }
             modelo.addFuncionario(funcionario);
             resetaCampos();
             FacesContext context = FacesContext.getCurrentInstance();
@@ -69,16 +59,6 @@ public class FuncionariosControl implements Serializable {
     
     public String updateFuncionario(){
         if(valida.cpfValida(funcionario.getCpf())){
-            funcionario.setPermissao(0);
-            if(funcionario.getFuncao().charAt(0) == 'p' || funcionario.getFuncao().charAt(0) == 'P'){
-                funcionario.setPermissao(1);
-            }
-            else if(funcionario.getFuncao().charAt(0) == 's' || funcionario.getFuncao().charAt(0) == 'S'){
-                funcionario.setPermissao(2);
-            }
-            else if(funcionario.getFuncao().charAt(0) == 'd' || funcionario.getFuncao().charAt(0) == 'D'){
-                funcionario.setPermissao(2);
-            }
             modelo.atualizaFuncionario(funcionario);
             resetaCampos();
             FacesContext context = FacesContext.getCurrentInstance();
