@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Lançar Notas</title>
     </h:head>
@@ -10,9 +11,17 @@
         <h:form>
             <p:panel id="panel" header="Lançar Notas" style="margin-bottom:10px;">
                  <p:fieldset legend="Inserir Novos Dados" style="margin-bottom:20px">
-                     <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="id_disc" value="ID Disciplina:" />
-                        <p:inputText id="id_disc" required="true" value="#{notasControl.idDisc}" maxlength="50"/>
+                     <h:panelGrid columns="2" cellpadding="5">  
+                        <p:outputLabel for="disciplina" value="Disciplinas:" />
+                        <p:selectOneListbox id="disciplina" value="#{notasControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
                         <h:outputLabel for="aluno" value="RA Aluno:" />
                         <p:inputText id="aluno" required="true" value="#{notasControl.raAluno}" maxlength="50"/>
                         <h:outputLabel for="nota1" value="Nota 1:" />

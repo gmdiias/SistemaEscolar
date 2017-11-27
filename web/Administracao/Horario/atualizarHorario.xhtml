@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Lançar Notas</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Atualizar Notas #{notasControl.raAluno}" style="margin-bottom:10px;">
+                <p:fieldset legend="Notas" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="disciplina" value="Disciplinas 1: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 2: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 3: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 4: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 5: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 6: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 7: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                        <p:outputLabel for="disciplina" value="Disciplinas 8: " />
+                        <p:selectOneListbox id="disciplina" value="#{horarioControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                       
+                    </h:panelGrid>
+             </p:fieldset>
+            <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Atualizar Horario" action="#{horarioControl.atualizaHorario()}" ajax="false" update="growl" />
+                    
+                    <p:growl id="message" showDetail="true" />
+ 
+                    <p:commandButton value="Remover Horario" action="#{horarioControl.delHorario()}" update="message">
+                    <p:confirm header="Confirmation" message="Você tem certeza?" icon="ui-icon-alert" />
+                   </p:commandButton>
+ 
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                    
+                    
+                </h:panelGrid>
+        </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

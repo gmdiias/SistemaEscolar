@@ -6,6 +6,7 @@
 package Controle;
 
 import Entidades.Aluno;
+import Entidades.Disciplina;
 import Entidades.Notas;
 import Modelo.NotasDAO;
 import java.io.Serializable;
@@ -28,6 +29,7 @@ public class NotasControl implements Serializable{
     private NotasDAO notasDao = new NotasDAO();
     private String raAluno;
     private String idDisc;
+    private List<Disciplina> disciplinas;
 
     public String getIdDisc() {
         return idDisc;
@@ -119,6 +121,15 @@ public class NotasControl implements Serializable{
         resetaCampos();
         return notas;
     }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+    
     
     
     public void resetaCampos(){

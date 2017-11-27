@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Lançar Notas</title>
     </h:head>
@@ -11,8 +12,16 @@
             <p:panel id="panel" header="Atualizar Notas #{notasControl.raAluno}" style="margin-bottom:10px;">
                 <p:fieldset legend="Notas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="idDisc" value="ID Disciplina:" />
-                        <p:inputText id="idDisc" value="#{notasControl.idDisc}" maxlength="50"/>
+                        <p:outputLabel for="disciplina" value="Disciplinas:" />
+                        <p:selectOneListbox id="disciplina" value="#{notasControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                            </p:column>
+                            <p:column>
+                                 <h:outputText value="#{disc.nome}" />
+                            </p:column>
+                        </p:selectOneListbox>
                         <h:outputLabel for="raAluno" value="RA Aluno:" />
                         <p:inputText id="raAluno" value="#{notasControl.raAluno}" maxlength="50"/>
                         <h:outputLabel for="nota1" value="Nota 1:" />
@@ -22,7 +31,7 @@
                         <h:outputLabel for="nota3" value="Nota 3:" />
                         <p:inputMask id="nota3" value="#{notasControl.nota.nota3}" mask="99.9" maxlength="50"/>
                         <h:outputLabel for="nota4" value="Nota 4:" />
-                        <p:inputMask id="nota4" value="#{notasControl.nota.nota1}" mask="99.9" maxlength="50"/>
+                        <p:inputMask id="nota4" value="#{notasControl.nota.nota4}" mask="99.9" maxlength="50"/>
                     </h:panelGrid>
              </p:fieldset>
             <h:panelGrid columns="2" cellpadding="5">

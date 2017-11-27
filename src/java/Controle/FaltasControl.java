@@ -5,6 +5,7 @@
  */
 package Controle;
 
+import Entidades.Disciplina;
 import Entidades.Faltas;
 import Modelo.FaltasDAO;
 import static com.sun.faces.facelets.util.Path.context;
@@ -28,6 +29,7 @@ public class FaltasControl implements Serializable {
     private FaltasDAO faltasDao = new FaltasDAO();
     private String raAluno;
     private String idDisc;
+    private List<Disciplina> disciplinas;
 
     public List<Faltas> getFaltas() {
         return faltas;
@@ -67,6 +69,14 @@ public class FaltasControl implements Serializable {
 
     public void setIdDisc(String idDisc) {
         this.idDisc = idDisc;
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
     
     
