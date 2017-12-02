@@ -13,23 +13,33 @@
                 <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="id" value="ID:" />
-                        <p:outputLabel id="id" value="#{perfilControl.pessoa.id}"/>
+                        <p:outputLabel id="id" value="#{perfilControl.funcionario.id}"/>
                         <h:outputLabel for="nome" value="Nome:" />
-                        <p:outputLabel id="nome" value="#{perfilControl.pessoa.nome}"/>
+                        <p:outputLabel id="nome" value="#{perfilControl.funcionario.nome}"/>
                         <h:outputLabel for="dataNasc" value="Data Nascimento:" />
-                        <p:outputLabel id="dataNasc" value="#{perfilControl.pessoa.dataNascimento}"/>
+                        <p:outputLabel id="dataNasc" value="#{perfilControl.funcionario.dataNascimento}"/>
                         <h:outputLabel for="cpf" value="CPF:" />
-                        <p:outputLabel id="cpf" value="#{perfilControl.pessoa.cpf}"/>
+                        <p:outputLabel id="cpf" value="#{perfilControl.funcionario.cpf}"/>
                         <h:outputLabel for="rg" value="RG:" />
-                        <p:outputLabel id="rg" value="#{perfilControl.pessoa.rg}"/>
+                        <p:outputLabel id="rg" value="#{perfilControl.funcionario.rg}"/>
                         <h:outputLabel for="sexo" value="Sexo:" />
-                        <p:outputLabel id="sexo" value="#{perfilControl.pessoa.sexo}"/>
+                        <p:outputLabel id="sexo" value="#{perfilControl.funcionario.sexo}"/>
                         <h:outputLabel for="telefone" value="Telefone:" />
-                        <p:outputLabel id="telefone" value="#{perfilControl.pessoa.telefone}"/>
+                        <p:outputLabel id="telefone" value="#{perfilControl.funcionario.telefone}"/>
                         <h:outputLabel for="endereco" value="Endereço:" />
-                        <p:outputLabel id="endereco" value="#{perfilControl.pessoa.endereco}"/>
+                        <p:outputLabel id="endereco" value="#{perfilControl.funcionario.endereco}"/>
                         <h:outputLabel for="email" value="Email:" />
-                        <p:outputLabel id="email" value="#{perfilControl.pessoa.email}"/>
+                        <p:outputLabel id="email" value="#{perfilControl.funcionario.email}"/>
+                    </h:panelGrid>
+                </p:fieldset>
+                <p:fieldset legend="Informações Funcionário" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="funcao" value="Função:" />
+                        <p:outputLabel id="funcao" value="#{perfilControl.funcionario.funcao}"/>
+                        <h:outputLabel for="cartTrab" value="Carteira de Trabalho:" />
+                        <p:outputLabel id="cartTrab" value="#{perfilControl.funcionario.carteiraTrabalho}"/>
+                        <h:outputLabel for="dataIni" value="Data Inicio de Trabalho:" />
+                        <p:outputLabel id="dataIni" value="#{perfilControl.funcionario.dataInicioTrab}"/>
                     </h:panelGrid>
                 </p:fieldset>
             </p:panel>

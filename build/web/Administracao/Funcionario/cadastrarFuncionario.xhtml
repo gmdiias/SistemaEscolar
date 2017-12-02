@@ -11,6 +11,7 @@
         <h:form>
             <p:panel id="panel" header="Cadastro de Funcionários" style="margin-bottom:10px;">
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
+                <p:fieldset legend="Informações Básicas" style="margin-bottom:20px">
                     <h:panelGrid columns="2" cellpadding="5">
                         <h:outputLabel for="nome" value="Nome:" />
                         <p:inputText id="nome" required="true" value="#{funcionariosControl.funcionario.nome}" maxlength="50"/>
@@ -39,9 +40,20 @@
                         <p:inputText id="email" required="true" type="email" value="#{funcionariosControl.funcionario.email}" maxlength="63"/>
                         <h:outputLabel for="senha" value="Senha:" />
                         <p:password id="senha" required="true" value="#{funcionariosControl.funcionario.senha}" feedback="true" />
-                        <p:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}" ajax="false" update="growl"/>
+                    </h:panelGrid>    
+                </p:fieldset>
+                <p:fieldset legend="Dados de Trabalho" toggleable="true" toggleSpeed="500" collapsed="true">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="carteira" value="Carteira de Trabalho:" />
+                        <p:inputText id="carteira" value="#{funcionariosControl.funcionario.carteiraTrabalho}" maxlength="20"/>
+                        <h:outputLabel for="dataTrab" value="Data Inicio Trabalho:" />
+                        <p:inputMask id="dataTrab" required="true" value="#{funcionariosControl.funcionario.dataInicioTrab}" mask="99/99/9999" maxlength="20"/>
                     </h:panelGrid>
-                </p:panel>
+                </p:fieldset>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}" ajax="false" update="growl"/> 
+                </h:panelGrid>
+            </p:panel>
         </h:form>
     </h:body>
 </html>

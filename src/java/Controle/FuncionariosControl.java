@@ -134,6 +134,8 @@ public class FuncionariosControl implements Serializable {
         funcionario.setEmail(null);
         funcionario.setSenha(null);
         funcionario.setFuncao(null);
+        funcionario.setCarteiraTrabalho(null);
+        funcionario.setDataInicioTrab(null);
         idFuncionario = null;
     }
     
