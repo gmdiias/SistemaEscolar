@@ -6,8 +6,10 @@
 package Entidades;
 
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -25,14 +27,14 @@ import javax.persistence.Table;
     , @NamedQuery(name = "Professor.findById", query = "SELECT p FROM Professor p WHERE p.id = :id")
 })
 public class Professor extends Funcionario{
+    @Column(length = 50, name = "GRADUACAO", nullable = true)
     private String graduação;
+    @Column(length = 50, name = "POSGRAD", nullable = true)
     private String posgraduação;
+    @Column(length = 50, name = "MESTRADO", nullable = true)
     private String mestrado;
+    @Column(length = 50, name = "DOUTORADO", nullable = true)
     private String doutorado;
-    @OneToMany
-    @JoinColumn(name = "ID_DISC")
-    private List<Disciplina> disciplinas;
-
     
     public String getGraduação() {
         return graduação;
@@ -65,15 +67,6 @@ public class Professor extends Funcionario{
     public void setDoutorado(String doutorado) {
         this.doutorado = doutorado;
     }
-
-    public List<Disciplina> getDisciplinas() {
-        return disciplinas;
-    }
-
-    public void setDisciplinas(List<Disciplina> disciplinas) {
-        this.disciplinas = disciplinas;
-    }
-    
     
     
 }

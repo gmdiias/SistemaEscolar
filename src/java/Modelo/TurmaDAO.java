@@ -36,19 +36,6 @@ public class TurmaDAO {
         sessao.close();
     }
     
-    public boolean addTurma(String descricaoTurma, List<Aluno> alunos, List<Disciplina> disciplinas){            
-        sessao = HibernateUtil.getSessionFactory().openSession();
-        trans = sessao.beginTransaction();
-        
-        //Turma turma = new Turma(descricaoTurma, alunos, disciplinas);
-        
-        //sessao.save(turma);
-        trans.commit();
-        sessao.close();
-        
-        return true;
-    }
-    
     public boolean atualizaTurma(Turma t){        
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();

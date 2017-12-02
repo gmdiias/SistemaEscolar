@@ -10,9 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -31,12 +33,12 @@ public class Disciplina {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
-    /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "ID_PROF")
-    private Professor professor;*/
-    /*@ManyToOne
+    private Funcionario func;
+    @OneToOne
     @JoinColumn(name = "ID_TURMA")
-    private Turma turma;*/
+    private Turma turma;
 
     public Disciplina() {
     }
@@ -55,6 +57,22 @@ public class Disciplina {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Funcionario getFunc() {
+        return func;
+    }
+
+    public void setFunc(Funcionario func) {
+        this.func = func;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
     
     

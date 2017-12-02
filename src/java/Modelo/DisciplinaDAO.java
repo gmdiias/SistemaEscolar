@@ -13,6 +13,7 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -27,10 +28,14 @@ public class DisciplinaDAO {
     private List<Turma> turma;
     private List<Disciplina> disciplinas;
 
-    public void addDisciplina(Disciplina disciplina){        
+    public void addDisciplina(Disciplina disciplina, int idTurma){        
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();
         System.out.println("Salvando disciplina");
+        Criteria cri = sessao.createCriteria(Turma.class);
+        cri.add(Restrictions.eq("id", idTurma));
+        this.turma = cri.list();    
+        disciplina.setTurma(turma.get(0));
         sessao.save(disciplina);
         trans.commit();
         sessao.close();    

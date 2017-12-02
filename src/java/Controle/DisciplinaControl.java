@@ -24,12 +24,13 @@ public class DisciplinaControl implements Serializable {
     private Disciplina disciplina = new Disciplina();
     private DisciplinaDAO disciplinaDAO = new DisciplinaDAO();
     private List<Disciplina> disciplinas;   
+    private String idTurma;
     
     public DisciplinaControl() {
     }
     
     public String addDisciplina(){
-        disciplinaDAO.addDisciplina(disciplina);
+        disciplinaDAO.addDisciplina(disciplina, Integer.valueOf(idTurma));
         return "Disciplina/consultaDisciplina";
     }
     
@@ -63,5 +64,15 @@ public class DisciplinaControl implements Serializable {
     public void setDisciplinaDAO(DisciplinaDAO disciplinaDAO) {
         this.disciplinaDAO = disciplinaDAO;
     }
+
+    public String getIdTurma() {
+        return idTurma;
+    }
+
+    public void setIdTurma(String idTurma) {
+        this.idTurma = idTurma;
+    }
+    
+    
        
 }
