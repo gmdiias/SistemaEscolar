@@ -10,58 +10,18 @@
     <h:body>
         <h:form>
             <p:growl id="growl" globalOnly="true" life="2000"/>
-            <p:dataTable value="#{notasControl.listarNotas()}" var="notasLista">
-                <p:column>
-                    <f:facet name="header">
-                        Segunda:
-                    </f:facet>
-                    <h:outputText value="7:15-8:00"/>
-                    <h:outputText value="8:00-8:45"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nome Aluno:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.aluno.nome}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nome Disciplina:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.disciplina.nome}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 1:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota1}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 2:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota2}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 3:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota3}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Nota 4:
-                    </f:facet>
-                    <h:outputText value="#{notasLista.nota4}"/>
-                </p:column>
-                <p:column>
-                    <f:facet name="header">
-                        Alterar:
-                    </f:facet>
-                    <h:commandLink value="Selecionar" action="#{notasControl.carregarNotas(notasLista)}"/>
-                </p:column>
-            </p:dataTable>
-                <p:link outcome="cadastrarNotas.xhtml" value="Cadastrar Notas"/>
+            <h:outputLabel for="turma" value="Selecione a Turma: " />
+                        <p:selectOneListbox id="turma" value="#{horarioControl.idTurm}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{turmaControl.listarTurma()}" var="turma" itemLabel="#{turma.descricaoTurma}" itemValue="#{turma.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{turma.id}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{turma.descricaoTurma}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                <p:commandButton value="Consultar" action="#{horarioControl.buscarHorario}"/>
+                <p:button outcome="cadastrarHorario.xhtml" value="Cadastrar" icon="ui-icon-star"/> 
         </h:form>
     </h:body>
 </html>

@@ -6,55 +6,71 @@
 package Entidades;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Leite
  */
+
+@Entity
+@Table(name = "Horario")
+@NamedQueries({
+    @NamedQuery(name = "Horario.findAll", query = "SELECT p FROM Horario p")
+    , @NamedQuery(name = "Horario.findById", query = "SELECT p FROM Horario p WHERE p.id = :id")
+})
+
 public class Horario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @OneToOne
-    @JoinColumn(name = "ID_Disc")
-    public Disciplina disciplina;
-    @OneToOne
-    @JoinColumn(name = "ID_Turm")
+    @JoinColumn(name = "ID_Turma")
     public Turma turma;
-    @Column(length = 10, name = "DISC_1", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_1")
     private Disciplina disc1;
-    @Column(length = 10, name = "DISC_2", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_2")
     private Disciplina disc2;
-    @Column(length = 10, name = "DISC_3", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_3")
     private Disciplina disc3;
-    @Column(length = 10, name = "DISC_4", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_4")
     private Disciplina disc4;
-    @Column(length = 10, name = "DISC_5", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_5")
     private Disciplina disc5;
-    @Column(length = 10, name = "DISC_6", nullable = true)
+    @ManyToOne
+    @JoinColumn(name = "DISC_6")
     private Disciplina disc6;
-    @Column(length = 10, name = "DISC_7", nullable = true)
-    private Disciplina disc7;
-    @Column(length = 10, name = "DISC_8", nullable = true)
-    private Disciplina disc8;
+    @Column(name = "DIA")
+    private String dia;
+   
 
     public Horario() {
     }
 
-    public Horario(Disciplina disc1, Disciplina disc2, Disciplina disc3, Disciplina disc4, Disciplina disc5, Disciplina disc6, Disciplina disc7, Disciplina disc8) {
+    public Horario(Disciplina disc1, Disciplina disc2, Disciplina disc3, Disciplina disc4, Disciplina disc5, Disciplina disc6, String dia) {
         this.disc1 = disc1;
         this.disc2 = disc2;
         this.disc3 = disc3;
         this.disc4 = disc4;
         this.disc5 = disc5;
         this.disc6 = disc6;
-        this.disc7 = disc7;
-        this.disc8 = disc8;
+        this.dia = dia;
+        
     }
     
 
@@ -64,14 +80,6 @@ public class Horario {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Disciplina getDisciplina() {
-        return disciplina;
-    }
-
-    public void setDisciplina(Disciplina disciplina) {
-        this.disciplina = disciplina;
     }
 
     public Turma getTurma() {
@@ -130,22 +138,14 @@ public class Horario {
         this.disc6 = disc6;
     }
 
-    public Disciplina getDisc7() {
-        return disc7;
+    public String getDia() {
+        return dia;
     }
 
-    public void setDisc7(Disciplina disc7) {
-        this.disc7 = disc7;
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 
-    public Disciplina getDisc8() {
-        return disc8;
-    }
-
-    public void setDisc8(Disciplina disc8) {
-        this.disc8 = disc8;
-    }
-    
-    
+  
     
 }
