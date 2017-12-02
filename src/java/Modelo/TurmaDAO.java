@@ -64,7 +64,7 @@ public class TurmaDAO {
         trans = sessao.beginTransaction();
         
         Criteria cri = sessao.createCriteria(Turma.class);
-        this.alunos = cri.list();
+        this.turmas = cri.list();
         
         sessao.close();
         return turmas;

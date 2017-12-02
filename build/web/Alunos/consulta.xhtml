@@ -32,6 +32,12 @@
                         <p:outputLabel id="email" value="#{perfilControl.pessoa.email}"/>
                     </h:panelGrid>
                 </p:fieldset>
+                <p:fieldset legend="Matricula" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="matricula" value="Turma:" />
+                        <p:outputLabel id="matricula" value="#{perfilControl.aluno.turma.descricaoTurma}"/>
+                    </h:panelGrid>
+                </p:fieldset>
             </p:panel>
         </h:form>
     </h:body>

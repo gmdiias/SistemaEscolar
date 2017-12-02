@@ -26,6 +26,8 @@ public class PerfilControl implements Serializable {
     private String email;
     private String senha;
     private Pessoa pessoa;
+    private Funcionario funcionario;
+    private Aluno aluno;
     private PerfilDAO modelo = new PerfilDAO();
     
     public PerfilControl() {
@@ -42,12 +44,12 @@ public class PerfilControl implements Serializable {
             return "index";
         }
         else if(pessoa.getClass() == Aluno.class){
+            aluno = (Aluno) pessoa;
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Aluno logado com sucesso",  "Sucesso") );
             return "Alunos/index";
         }
         else if(pessoa.getClass() == Funcionario.class){
-            Funcionario funcionario = new Funcionario();
             funcionario = (Funcionario) pessoa;
             FacesContext context = FacesContext.getCurrentInstance();
             if(funcionario.getPermissao() == 1){
@@ -103,5 +105,23 @@ public class PerfilControl implements Serializable {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
+    }
+    
+    
     
 }

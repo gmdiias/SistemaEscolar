@@ -29,7 +29,7 @@
                         <h:outputLabel for="email" value="Email:" />
                         <p:inputText id="email" value="#{alunosControl.aluno.email}" maxlength="63"/>
                         <h:outputLabel for="senha" value="Senha:" />
-                        <p:password id="senha" value="#{alunosControl.aluno.senha}" feedback="true" />
+                        <p:password id="senha" value="#{alunosControl.aluno.senha}" feedback="true" required="true" requiredMessage="Campo senha inválido!"/>
                     </h:panelGrid>
                 </p:fieldset>
                 <p:fieldset legend="Dados do Responsável" toggleable="true" toggleSpeed="500" collapsed="true">
@@ -44,8 +44,9 @@
                         <p:inputMask id="telefoneResp" value="#{alunosControl.aluno.telefoneResp}" mask="(99) 99999.9999" maxlength="20"/>
                     </h:panelGrid>
                 </p:fieldset>
-                <h:panelGrid columns="2" cellpadding="5">
+                <h:panelGrid columns="3" cellpadding="5">
                     <p:commandButton value="Atualizar" action="#{alunosControl.updateAluno}" ajax="false" update="growl" />
+                    <p:button outcome="matricularAluno.xhtml" value="Matricular Aluno" icon="fa fa-fw fa-remove"/>
                     <p:commandButton value="Remover" action="#{alunosControl.deleteAluno}" ajax="false" update="growl"/>
                 </h:panelGrid>
             </p:panel>

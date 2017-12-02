@@ -2,6 +2,7 @@ package Controle;
 
 import Entidades.Turma;
 import Modelo.TurmaDAO;
+import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -16,8 +17,9 @@ import javax.inject.Named;
  *
  * @author Adriano Henrique Rezende
  */
-
-public class TurmaControl {
+@Named(value = "turmaControl")
+@SessionScoped
+public class TurmaControl implements Serializable{
     
     private Turma turma = new Turma();
     private TurmaDAO turmaDAO = new TurmaDAO();

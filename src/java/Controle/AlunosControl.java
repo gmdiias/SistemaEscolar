@@ -80,6 +80,14 @@ public class AlunosControl implements Serializable {
         return "consultaAlunos";
     }
     
+    public String removerMatricula(){
+        modelo.matriculaAluno(aluno, 0);
+        resetaCampos();
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Aluno Matriculado",  "Sucesso") );
+        return "consultaAlunos";
+    }
+    
     public String buscarAluno(){
         int ra;
         ra = Integer.valueOf(raAlunoBusca);

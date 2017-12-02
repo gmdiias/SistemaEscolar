@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Matricular Aluno #{alunosControl.aluno.id}</title>
     </h:head>
@@ -11,19 +12,34 @@
             <p:panel id="panel" header="Matricular Aluno: #{alunosControl.aluno.nome}" style="margin-bottom:10px;">
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true"/>
                 <p:fieldset legend="Dados do Aluno" style="margin-bottom:20px">
-                    <h:outputLabel for="id" value="ID:" />
-                    <p:outputLabel id="id" value="#{alunosControl.aluno.id}"/>
-                    <h:outputLabel for="nome" value="Nome:" />
-                    <p:outputLabel id="nome" value="#{alunosControl.aluno.nome}"/>
-                    <h:outputLabel for="datanasc" value="Data Nascimento:" />
-                    <p:outputLabel id="datanasc" value="#{alunosControl.aluno.dataNascimento}"/>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="id" value="ID:" />
+                        <p:outputLabel id="id" value="#{alunosControl.aluno.id}"/>
+                        <h:outputLabel for="nome" value="Nome:" />
+                        <p:outputLabel id="nome" value="#{alunosControl.aluno.nome}"/>
+                        <h:outputLabel for="datanasc" value="Data Nascimento:" />
+                        <p:outputLabel id="datanasc" value="#{alunosControl.aluno.dataNascimento}"/>
+                        <h:outputLabel for="turmaAt" value="Turma Atual:" />
+                        <p:outputLabel id="turmaAt" value="#{alunosControl.aluno.turma.descricaoTurma}"/>
+                    </h:panelGrid>
                 </p:fieldset>
                 <p:fieldset legend="Matricula" style="margin-bottom:20px">
-                    <h:outputLabel for="id_turma" value="ID Turma:" />
-                    <p:inputText id="id_turma" required="true" value="#{alunosControl.idTurma}" maxlength="50"/>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel for="turma" value="Selecionar Turma:" />
+                        <p:selectOneListbox id="turma" value="#{alunosControl.idTurma}" filter="true" filterMatchMode="contains"  >
+                            <f:selectItems value="#{turmaControl.listarTurma()}" var="turma" itemLabel="#{turma.descricaoTurma}" itemValue="#{turma.id}" />
+                            <p:column>
+                                <h:outputText styleClass="ui-theme ui-theme-#{turma.id}" />
+                            </p:column>
+                            <p:column>
+                                <h:outputText value="#{turma.descricaoTurma}" />
+                            </p:column>
+                        </p:selectOneListbox>
+                    </h:panelGrid>
                 </p:fieldset>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:commandButton value="Matricular" action="#{alunosControl.matriculaAluno}" ajax="false" update="growl" />
+                    <p:commandButton value="Remover Matricula" action="#{alunosControl.removerMatricula}" ajax="false" update="growl" />
                 </h:panelGrid>
             </p:panel>
         </h:form>

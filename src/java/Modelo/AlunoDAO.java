@@ -42,11 +42,15 @@ public class AlunoDAO {
         trans = sessao.beginTransaction();
         
         //sessao.save(tur);
-       
-        Criteria cri = sessao.createCriteria(Turma.class);
-        cri.add(Restrictions.eq("id", idTurma));
-        this.turma = cri.list(); 
-        a.setTurma(turma.get(0));
+        if(idTurma == 0){
+            a.setTurma(null);
+        }
+        else {
+            Criteria cri = sessao.createCriteria(Turma.class);
+            cri.add(Restrictions.eq("id", idTurma));
+            this.turma = cri.list(); 
+            a.setTurma(turma.get(0));
+        }
         
         sessao.update(a);
         

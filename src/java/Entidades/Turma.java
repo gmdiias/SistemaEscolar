@@ -49,14 +49,14 @@ public class Turma {
         
     }
 
-    public int getCodigoTurma() {
+    public int getId() {
         return id;
     }
 
-    public void setCodigoTurma(int codigoTurma) {
-        this.id = codigoTurma;
+    public void setId(int id) {
+        this.id = id;
     }
-
+    
     public String getDescricaoTurma() {
         return descricaoTurma;
     }
