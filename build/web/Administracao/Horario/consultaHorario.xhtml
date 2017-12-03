@@ -21,7 +21,10 @@
                             </p:column>
                         </p:selectOneListbox>
                 <p:commandButton value="Consultar" action="#{horarioControl.buscarHorario}"/>
-                <p:button outcome="cadastrarHorario.xhtml" value="Cadastrar" icon="ui-icon-star"/> 
+                            <p:column>
+                                <p:button outcome="cadastrarHorario.xhtml" value="Cadastrar" icon="ui-icon-star"/>     
+                            </p:column>
+                
         </h:form>
     </h:body>
 </html>

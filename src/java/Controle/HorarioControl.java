@@ -49,19 +49,6 @@ public class HorarioControl implements Serializable {
         this.dia = dia;
     }
     
-    public String carregarHorario(Horario a){
-        horario = a;
-        dia = horario.getDia();
-        idTurm = Integer.toString(horario.getTurma().getId());
-        idDisc1 = Integer.toString(horario.getDisc1().getId());
-        idDisc2 = Integer.toString(horario.getDisc2().getId());
-        idDisc3 = Integer.toString(horario.getDisc3().getId());
-        idDisc4 = Integer.toString(horario.getDisc4().getId());
-        idDisc5 = Integer.toString(horario.getDisc5().getId());
-        idDisc6 = Integer.toString(horario.getDisc6().getId());
-        
-        return "atualizarHorario";
-    }
     
     public void setHorario(Horario horario) {
         this.horario = horario;
@@ -150,7 +137,7 @@ public class HorarioControl implements Serializable {
     
     public String addHorario(){
         horarioDao.addHorario(horario,Integer.parseInt(idTurm),dia,Integer.parseInt(idDisc1),Integer.parseInt(idDisc2),Integer.parseInt(idDisc3),Integer.parseInt(idDisc4),Integer.parseInt(idDisc5),Integer.parseInt(idDisc6));
-        //resetaCampos();
+        resetaCampos();
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage("Horario Adicionado!"));
         return "consultaHorario";
@@ -165,6 +152,20 @@ public class HorarioControl implements Serializable {
         horarios = horarioDao.listarHorario(Integer.parseInt(idTurm), dia);
         return horarios;
     }
+    
+    public String carregarHorario(Horario a){
+        horario = a;
+        dia = horario.getDia();
+        idTurm = Integer.toString(horario.getTurma().getId());
+        idDisc1 = Integer.toString(horario.getDisc1().getId());
+        idDisc2 = Integer.toString(horario.getDisc2().getId());
+        idDisc3 = Integer.toString(horario.getDisc3().getId());
+        idDisc4 = Integer.toString(horario.getDisc4().getId());
+        idDisc5 = Integer.toString(horario.getDisc5().getId());
+        idDisc6 = Integer.toString(horario.getDisc6().getId());
+        
+        return "atualizarHorario";
+    }
     public String atualizaHorario(){
         horarioDao.atualizaHorario(horario,Integer.parseInt(idTurm),dia,Integer.parseInt(idDisc1),Integer.parseInt(idDisc2),Integer.parseInt(idDisc3),Integer.parseInt(idDisc4),Integer.parseInt(idDisc5),Integer.parseInt(idDisc6));
         resetaCampos();
@@ -172,7 +173,7 @@ public class HorarioControl implements Serializable {
         context.addMessage(null, new FacesMessage("Horario Atualizado"));
         return "consultaHorario";
     }
-    
+
     public String delHorario(){
         horarioDao.delHorario(horario);
         resetaCampos();
@@ -180,7 +181,6 @@ public class HorarioControl implements Serializable {
         context.addMessage(null, new FacesMessage("Horario Deletado"));
         return "consultaHorario";
     }
-    
     public void resetaCampos(){
         setDia(null);
         setIdTurm(null);

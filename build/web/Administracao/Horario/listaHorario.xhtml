@@ -57,9 +57,10 @@
                     <f:facet name="header">
                         Alterar:
                     </f:facet>
-                <h:commandButton value="Atualizar" action="#{horarioControl.carregarHorario(horarioLista)}"/>
+                <p:commandButton value="Atualizar" action="#{horarioControl.carregarHorario(horarioLista)}"/>
                 </p:column>
             </p:dataTable>
+            <p:button value="Voltar" outcome="consultaHorario.xhtml"/>
         </h:form>
     </h:body>
 </html>
