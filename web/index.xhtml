@@ -13,9 +13,9 @@
                 <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                 <h:panelGrid columns="2" cellpadding="5">
                     <h:outputLabel for="email" value="Email:" />
-                    <p:inputText id="email" value="#{perfilControl.email}" maxlength="63"/>
+                    <p:inputText id="email" type="email"  value="#{perfilControl.email}" maxlength="63" required="true" requiredMessage="E-mail não informado!"/>
                     <h:outputLabel for="senha" value="Senha:" />
-                    <p:password id="senha" value="#{perfilControl.senha}" feedback="false" />
+                    <p:password id="senha" value="#{perfilControl.senha}" maxlength="24" required="true" requiredMessage="Senha não informado!" />
                     <p:commandButton value="Login" action="#{perfilControl.realizaLogin}" ajax="false" update="growl"/>
                     <p:commandLink value="Esqueci minha senha" action="#{perfilControl.esqueciSenha}" ajax="false" update="growl"/>
                 </h:panelGrid>
