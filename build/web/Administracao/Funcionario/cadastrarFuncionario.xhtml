@@ -47,11 +47,12 @@
                         <h:outputLabel for="carteira" value="Carteira de Trabalho:" />
                         <p:inputText id="carteira" value="#{funcionariosControl.funcionario.carteiraTrabalho}" maxlength="20"/>
                         <h:outputLabel for="dataTrab" value="Data Inicio Trabalho:" />
-                        <p:inputMask id="dataTrab" required="true" value="#{funcionariosControl.funcionario.dataInicioTrab}" mask="99/99/9999" maxlength="20"/>
+                        <p:inputMask id="dataTrab" value="#{funcionariosControl.funcionario.dataInicioTrab}" mask="99/99/9999" maxlength="20"/>
                     </h:panelGrid>
                 </p:fieldset>
                 <h:panelGrid columns="2" cellpadding="5">
                     <p:commandButton value="Cadastrar" action="#{funcionariosControl.addFuncionario}" ajax="false" update="growl"/> 
+                    <p:button outcome="ajudaCadastrar.xhtml" value="Ajuda" icon="fa fa-fw fa-remove"/>
                 </h:panelGrid>
             </p:panel>
         </h:form>

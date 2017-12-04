@@ -8,13 +8,59 @@
         <title>Gerenciamento de Alunos</title>
     </h:head>
     <h:body>
-        <p:panel id="panel" header="Gerenciamento de Materias" style="margin-bottom:10px;">
+        <p:panel id="panel" header="Gerenciamento de Disciplinas" style="margin-bottom:10px;">
+            <h:form>
+                <p:fieldset legend="Buscar Notas por Disciplinas" style="margin-bottom:10px">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <p:outputLabel for="disciplina" value="Disciplinas:" />
+                        <p:selectOneListbox id="disciplina" value="#{notasControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                                <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                                <p:column>
+                                    <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                                </p:column>
+                                <p:column>
+                                     <h:outputText value="#{disc.nome}" />
+                                </p:column>
+                            </p:selectOneListbox>   
+                        <p:commandButton value="Buscar" action="#{notasControl.buscarDisc}" ajax="false" update="growl"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </h:form>
+            
             <h:form>
                 
-                <p:fieldset legend="Buscar Notas Materia" style="margin-bottom:10px">
-                    <h:outputLabel for="idDisc" value="ID: " />
-                    <p:inputText id="idDisc" required="true" value="#{notasControl.idDisc}" maxlength="20"/>
-                    <p:commandButton value="Buscar" action="#{notasControl.buscarDisc}" ajax="false" update="growl"/>
+                <p:fieldset legend="Buscar Faltas por Disciplinas" style="margin-bottom:10px">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <p:outputLabel for="disciplina" value="Disciplinas:" />
+                        <p:selectOneListbox id="disciplina" value="#{faltasControl.idDisc}" filter="true" filterMatchMode="contains"  >
+                                <f:selectItems value="#{disciplinaControl.listarDisciplina()}" var="disc" itemLabel="#{disc.nome}" itemValue="#{disc.id}" />
+                                <p:column>
+                                    <h:outputText styleClass="ui-theme ui-theme-#{disc.id}" />
+                                </p:column>
+                                <p:column>
+                                     <h:outputText value="#{disc.nome}" />
+                                </p:column>
+                            </p:selectOneListbox>   
+                        <p:commandButton value="Buscar" action="#{faltasControl.buscarDisc}" ajax="false" update="growl"/>
+                    </h:panelGrid>
+                </p:fieldset>
+            </h:form>
+            
+            <h:form>
+                <p:fieldset legend="Visualizar Horário das Aulas" style="margin-bottom:10px">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <h:outputLabel for="turma" value="Selecione a Turma: " />
+                            <p:selectOneListbox id="turma" value="#{horarioControl.idTurm}" filter="true" filterMatchMode="contains"  >
+                                <f:selectItems value="#{turmaControl.listarTurma()}" var="turma" itemLabel="#{turma.descricaoTurma}" itemValue="#{turma.id}" />
+                                <p:column>
+                                    <h:outputText styleClass="ui-theme ui-theme-#{turma.id}" />
+                                </p:column>
+                                <p:column>
+                                    <h:outputText value="#{turma.descricaoTurma}" />
+                                </p:column>
+                            </p:selectOneListbox>
+                        <p:commandButton value="Consultar" action="#{horarioControl.buscarHorario}"/> 
+                    </h:panelGrid>
                 </p:fieldset>
             </h:form>
         </p:panel>

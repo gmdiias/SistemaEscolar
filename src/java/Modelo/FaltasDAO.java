@@ -90,6 +90,19 @@ public List<Faltas> getFaltasAluno(int raAluno) {
         sessao.close();
         return faltas;
     }
+
+public List<Faltas> getFaltasDisc(int idDisc) {
+        sessao = HibernateUtil.getSessionFactory().openSession();
+        trans = sessao.beginTransaction();
+        System.out.println("Buscando Faltas Disc ID " + idDisc);
+        Criteria cri = sessao.createCriteria(Faltas.class);
+        cri.add(Restrictions.eq("disciplina.id", idDisc));
+        this.faltas = cri.list();
+        System.out.println(faltas.size());
+        sessao.close();
+        return faltas;
+    }
+
 public boolean delFaltas(Faltas a) {
         sessao = HibernateUtil.getSessionFactory().openSession();
         trans = sessao.beginTransaction();

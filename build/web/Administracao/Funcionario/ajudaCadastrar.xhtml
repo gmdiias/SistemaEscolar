@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ajuda para Cadastro de Funcionários</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:panel id="panel" header="Sessão de ajuda para Cadastrar Funcionários" style="margin-bottom:10px;">
+                <p:messages id="messages" />
+                <h:outputLabel for="texto" value="Para cadastrar funcionários, é necessário informar os dados solicitados no formulário de cadastro corretamente,
+                               veja com quais informações preenchê-los e qual o seu formato de entrada abaixo:" />
+                <p:fieldset legend="Campos Obrigatórios (*):" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="nome" value="•Nome:" />
+                        <h:outputLabel for="nome2" value="É necessário ser informado o nome completo do funcionário;" />
+                        <h:outputLabel for="data" value="•Data:" />
+                        <h:outputLabel for="data2" value="É informada a data de nascimento, apenas serão aceitas datas no formato “DD/MM/AAAA”;" />
+                        <h:outputLabel for="cpf" value="•CPF:" />
+                        <h:outputLabel for="cpf2" value="É informado o CPF do funcionário. O CPF é validado, ou seja, somente são aceitos números de CPF verdadeiros;" />
+                        <h:outputLabel for="rg" value="•RG:" />
+                        <h:outputLabel for="rg2" value="Deve ser informado o RG do funcionário;" />
+                        <h:outputLabel for="sexo" value="•Sexo:" />
+                        <h:outputLabel for="sexo2" value="Deve ser informado o sexo do funcionário;" />
+                        <h:outputLabel for="telefone" value="•Telefone:" />
+                        <h:outputLabel for="telefone2" value="Deve ser informado o numero de telefone para contato, apenas serão aceitos números no formato (DD) FFFFF-FFFF;" />
+                        <h:outputLabel for="end" value="•Endereço:" />
+                        <h:outputLabel for="end2" value="Deve ser informado o endereço;" />
+                        <h:outputLabel for="funcao" value="•Função:" />
+                        <h:outputLabel for="funcao2" value="Campo para ser informada qual a função que o funcionário irá exercitar na escola;" />
+                        <h:outputLabel for="permissao" value="•Permissão:" />
+                        <h:outputLabel for="permissao2" value="Deve ser informado qual o nível de permissão que este usuário terá, será utilizado como base de como o sistema ira identifica-lo, sendo assim será permitindo a ele executar apenas suas determinadas funções;" />
+                        <h:outputLabel for="email" value="•E-mail:" />
+                        <h:outputLabel for="email2" value="Deve ser informado o email do usuário, este email será utilizado para login do mesmo futuramente no sistema;" />
+                        <h:outputLabel for="senha" value="•Senha:" />
+                        <h:outputLabel for="senha2" value="O funcionário deve informar sua senha desejada, está senha será utilizada para login do mesmo futuramente no sistema;" />
+                        
+                    </h:panelGrid>
+                </p:fieldset>
+                <p:fieldset legend="Campos Opcionais:" style="margin-bottom:20px">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputLabel for="cart" value="•Carteira de Trabalho:" />
+                        <h:outputLabel for="cart2" value="Deve ser informado o número da carteira de Trabalho de funcionário, está informação pode ser adicionada posteriormente;" />
+                        <h:outputLabel for="dataIni" value="•Data Inicio Trabalho:" />
+                        <h:outputLabel for="dataIni2" value="Deve ser informada a data de inicio das atividades do funcionário na empresa, está informação pode ser adicionada posteriormente;" />
+                    </h:panelGrid>
+                </p:fieldset>
+                
+                <p:button outcome="cadastrarFuncionario.xhtml" value="Voltar" icon="fa fa-fw fa-remove"/>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

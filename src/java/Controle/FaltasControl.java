@@ -79,6 +79,15 @@ public class FaltasControl implements Serializable {
         this.disciplinas = disciplinas;
     }
     
+    public String buscarDisc(){
+        return "consultaFaltas";
+    }
+    
+    public List<Faltas> listarNotasDisc(){
+        faltas = faltasDao.getFaltasDisc(Integer.valueOf(idDisc));
+        resetaCampos();
+        return faltas;
+    }
     
     public String addFaltas(){
         faltasDao.addFaltas(falta, Integer.valueOf(raAluno), Integer.valueOf(idDisc));
